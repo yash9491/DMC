@@ -83,25 +83,27 @@ a{
 .small-border-right{
     width:100px;
     margin-top:20px;
-    border-top:1px solid black;
+    height: 7px;
+    background-color: #008a00;
 }
 .small-border-left{
     width:100px;
     margin-left:435px;
     margin-top:20px;
-    border-top:1px solid black;
+    height: 7px;
+    background-color: #008a00;
 }
 .dashboard-about-content-right{
     padding-top:20px;
     padding-bottom: 10px;
-    font: normal normal normal 35px/1.1em 'eb garamond',serif;
+    font: normal normal normal 30px/1.1em 'eb garamond',serif;
     color: #2F2E2E;
 }
 .dashboard-about-content-left{
     padding-top:20px;
     padding-bottom: 10px;
     text-align:right;
-    font: normal normal normal 35px/1.1em 'eb garamond',serif;
+    font: normal normal normal 30px/1.1em 'eb garamond',serif;
     color: #2F2E2E;
 }
 .dashboard-about-content-1{
@@ -113,6 +115,7 @@ a{
     height:20px;
     font-weight:800;
     display:inline-block;
+    font: normal normal normal 30px/1.1em 'eb garamond',serif;
 }
 .grid-data{
     text-align: center;
