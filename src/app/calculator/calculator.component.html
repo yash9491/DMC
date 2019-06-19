@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row menu-bar main">
+        <div class="col-md-2 col-lg-2 logo">
+            <span>DevOps - MC</span>
+        </div>
+        <div class="col-lg-4 offset-lg-6">
+            <div class="row menu-bar-left">
+              <div class="col-lg-3 menu-options">
+                <span>Home</span>
+              </div>
+              <div class="col-lg-3 menu-options">
+                <span>About</span>
+              </div>
+              <div class="col-lg-6 menu-options">
+                <span>d.yaswanth.chandra</span>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 grid-data">
+          <span>Metric</span>
+      </div>
+      <div class="col-lg-2 grid-data">
+          <span>Before Devops<br>(Hours)</span>
+      </div>
+      <div class="col-lg-2 grid-data">
+            <span>After Devops<br>(Hours)</span>
+      </div>
+      <div class="col-lg-2 grid-data">
+            <span>Before Devops<br>(Cost)</span>
+      </div>
+      <div class="col-lg-2 grid-data">
+              <span>After Devops<br>(Cost)</span>
+      </div>
+    </div>
+    
+        <div class="row" *ngFor="let i of speedtomarket">
+            <div class="col-lg-4 grid-data">
+                <span>{{i.Question}}</span>
+            </div>
+            <div class="col-lg-2 grid-data">
+                <input type="text" [value]="i.BefDevHr" (input)="i.BefDevHr=$event.target.value">
+            </div>
+            <div class="col-lg-2 grid-data">
+                <input type="text" [value]="i.AftDevHr" (input)="i.AftDevHr=$event.target.value">
+            </div>
+            <div class="col-lg-2 grid-data">
+                <input type="text" [value]="i.BefDevCst" (input)="i.BefDevCst=$event.target.value">
+            </div>
+            <div class="col-lg-2 grid-data">
+                <input type="text" [value]="i.AftDevCst" (input)="i.AftDevCst=$event.target.value">
+            </div>
+          </div>
+        <button (click)="submit()">Submit</button>
+</div>

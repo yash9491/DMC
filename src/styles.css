@@ -1,1 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
+.main{
+    background-color: #eaeeef;
+}
+.menu-bar{
+    top:0%;
+    height:50px;
+    border-bottom: 1px dotted black;
+    position: relative;
+}
+.menu-bar .logo{
+    text-align:center;
+    vertical-align: center;
+    padding-top:10px;
+    color: #112ca3;
+    font-weight: 700;
+    font-size: 24px;
+}
+.menu-bar .menu-options{
+    padding-top:15px;
+    display: block;
+    color: black;
+    text-align:center;  
+    font-size:16px;
+    font-weight: 500px;
+}
+.green-ribbon{
+    height:250px;
+    border-bottom: 1px dotted black;
+    padding-top:25px;
+    display: block;
+    position: relative;
+    background-color: #008a00; 
+}
+.devops-logo{
+    display: inline-block; 
+    text-align: center;
+    vertical-align: center;
+    display: inline-block;
+}
+.devops-main-logo{
+    height:200px;
+    width: 500px;  
+    margin-top:-70px;
+}
+.green-ribbon .content{
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    display: inline-block;
+    height:200px;
+}
+.green-ribbon .content .main-heading{
+    font-size:35px;
+    font-weight: 700;
+}
+a{
+    color: white;
+    text-decoration: underline;
+}
+.getstarted{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.about-block{
+    position: relative;
+    height:230px;  
+    text-align: center;
+    margin-top: 25px;
+}
+.about-logo{
+    height:20px;
+    font-weight:800;
+}
+.grid-data{
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.about-tiles{
+    position: relative;
+}
+.about-content{
+    text-align: justify;
+  text-justify: inter-word;
+  text-indent: 100px;
+}
+.about-content-1{
+    text-align: justify;
+  text-justify: inter-word;
+}
+.about-tile{
+    padding-left:5px;
+    height: 250px;
+    text-align: center;
+}
+.Categories{
+    height:45px;
+    color: white;
+    font-weight: 600;
+    padding-top:10px;
+    background-color: #008a00;
+    vertical-align: center;
+}
