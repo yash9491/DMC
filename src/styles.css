@@ -1,5 +1,5 @@
 .main{
-    background-color: #eaeeef;
+    background-color: white;
 }
 .menu-bar{
     top:0%;
@@ -14,6 +14,10 @@
     color: #112ca3;
     font-weight: 700;
     font-size: 24px;
+}
+.dasboard-logo{
+    height:150px;
+    width:150px;
 }
 .menu-bar .menu-options{
     padding-top:15px;
@@ -38,7 +42,7 @@
     display: inline-block;
 }
 .devops-main-logo{
-    height:200px;
+    height:230px;
     width: 500px;  
     margin-top:-70px;
 }
@@ -63,9 +67,47 @@ a{
 }
 .about-block{
     position: relative;
-    height:230px;  
+    height:30px;  
     text-align: center;
     margin-top: 25px;
+}
+.dashboard-about-tile{
+    height:200px;
+}
+.dashboard-about-tile{
+    text-align:center;
+}
+.dashboard-about-tile-right{
+    text-align:left;
+}
+.small-border-right{
+    width:100px;
+    margin-top:20px;
+    border-top:1px solid black;
+}
+.small-border-left{
+    width:100px;
+    margin-left:435px;
+    margin-top:20px;
+    border-top:1px solid black;
+}
+.dashboard-about-content-right{
+    padding-top:20px;
+    padding-bottom: 10px;
+    font: normal normal normal 35px/1.1em 'eb garamond',serif;
+    color: #2F2E2E;
+}
+.dashboard-about-content-left{
+    padding-top:20px;
+    padding-bottom: 10px;
+    text-align:right;
+    font: normal normal normal 35px/1.1em 'eb garamond',serif;
+    color: #2F2E2E;
+}
+.dashboard-about-content-1{
+    margin-top:20px;
+    font:normal normal normal 15px/1.4em raleway,sans-serif;
+    color: black;
 }
 .about-logo{
     height:20px;
