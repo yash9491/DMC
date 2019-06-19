@@ -70,6 +70,7 @@ a{
 .about-logo{
     height:20px;
     font-weight:800;
+    display:inline-block;
 }
 .grid-data{
     text-align: center;
@@ -82,6 +83,10 @@ a{
     text-align: justify;
   text-justify: inter-word;
   text-indent: 100px;
+}
+.dashboard-logo{
+    height:150px;
+    width:150px;
 }
 .about-content-1{
     text-align: justify;
