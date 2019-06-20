@@ -1,6 +1,19 @@
-.main{
-    background-color: white;
-}
+html {
+    scroll-behavior: smooth;
+  }
+  input{
+      border:0;
+      text-align: center;
+      border-left: 1px dotted black;
+  }
+  .main{
+      background-color: #ebeef4;
+  }
+  .about-button{
+      cursor: pointer;
+      color: black;
+      text-decoration: none;
+  }
 .menu-bar{
     top:0%;
     height:50px;
@@ -62,8 +75,20 @@ a{
     text-decoration: underline;
 }
 .getstarted{
-    text-decoration: underline;
-    cursor: pointer;
+    height: 35px;
+    color: white;
+    font-weight: 700;
+    background-color: rgba(255, 140, 0, 1);
+    border: solid rgba(255, 6, 28, 1) 1px;
+    cursor: pointer !important;
+}
+.getstarted button:hover{
+    height: 35px;
+    color: white;
+    font-weight: 700;
+    background-color: rgb(255, 81, 0);
+    border: solid rgba(255, 6, 28, 1) 1px;
+    cursor: pointer !important;
 }
 .about-block{
     position: relative;
@@ -109,7 +134,24 @@ a{
 .dashboard-about-content-1{
     margin-top:20px;
     font:normal normal normal 15px/1.4em raleway,sans-serif;
-    color: black;
+    color: #000000;
+}
+.table-ribbon{
+    height: 40px;
+    border: 1px solig green;
+    background-color: #008a00;
+    position: absolute;
+    margin-top:130px;
+    z-index: 10;
+}
+.grid-table{
+    position: relative;
+    margin-top:150px;
+    border: 1px solid black;
+    display: box;
+    padding:10px;
+    box-shadow: 2px 2px 2px 2px #888888;
+    background-color: white;
 }
 .about-logo{
     height:20px;
@@ -119,7 +161,7 @@ a{
 }
 .grid-data{
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px dotted black;
 }
 .about-tiles{
     position: relative;
