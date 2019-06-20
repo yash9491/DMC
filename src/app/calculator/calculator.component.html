@@ -5,59 +5,111 @@
         </div>
         <div class="col-lg-4 offset-lg-6">
             <div class="row menu-bar-left">
-              <div class="col-lg-3 menu-options">
-                <span>Home</span>
-              </div>
-              <div class="col-lg-3 menu-options">
-                <span>About</span>
-              </div>
-              <div class="col-lg-6 menu-options">
-                <span>d.yaswanth.chandra</span>
-              </div>
+                <div class="col-lg-3 menu-options">
+                    <span>Home</span>
+                </div>
+                <div class="col-lg-3 menu-options">
+                    <span>About</span>
+                </div>
+                <div class="col-lg-6 menu-options">
+                    <span>d.yaswanth.chandra</span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row" >
+    <div class="row">
         <div class="col-lg-8 offset-lg-2 table-ribbon"></div>
     </div>
-    <div class="row">
-    <div class="col-lg-10 offset-lg-1 grid-table">
-    <div class="row">
-      <div class="col-lg-4 grid-data">
-          <span>Metric</span>
-      </div>
-      <div class="col-lg-2 grid-data">
-          <span>Before Devops<br>(Hours)</span>
-      </div>
-      <div class="col-lg-2 grid-data">
-            <span>After Devops<br>(Hours)</span>
-      </div>
-      <div class="col-lg-2 grid-data">
-            <span>Before Devops<br>(Cost)</span>
-      </div>
-      <div class="col-lg-2 grid-data">
-              <span>After Devops<br>(Cost)</span>
-      </div>
-    </div>
-    
-        <div class="row" *ngFor="let i of speedtomarket">
-            <div class="col-lg-4 grid-data">
-                <span>{{i.Question}}</span>
+    <div class="row main-table">
+        <div class="col-lg-10 offset-lg-1 grid-table">
+            <div class="row">
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col grid-data-head">
+                            <span id="block">Before DevOps</span>
+                        </div>
+                        <div class="col grid-data-head">
+                            &nbsp;&nbsp;<span id="block">After DevOps</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
             </div>
-            <div class="col-lg-2 grid-data">
-                <input type="text" [value]="i.BefDevHr" (input)="i.BefDevHr=$event.target.value">
+            <div class="row">
+                <div class="col-lg-4 grid-data-head">
+                    <span>Metric</span>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col grid-data-head">
+                            <span id="block">Hours</span>
+                            <input type="image" class="dnd-logo" src="assets/images/hours.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Cost</span>
+                            <input type="image" class="dnd-logo" src="assets/images/costs.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Hours</span>
+                            <input type="image" class="dnd-logo" src="assets/images/hours.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Cost</span>
+                            <input type="image" class="dnd-logo" src="assets/images/costs.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Actions</span>
+                            <input type="image" class="dnd-logo" src="assets/images/actions.png" alt="image">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-2 grid-data">
-                <input type="text" [value]="i.AftDevHr" (input)="i.AftDevHr=$event.target.value">
+            <div class="row" *ngFor="let i of pagedItems">
+                <div class="col-lg-4 grid-data-mem">
+                    <span>{{i.Question}}</span>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col grid-data-mem">
+                            <input type="text" [value]="i.BefDevHr" (input)="i.BefDevHr=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem">
+                            <input type="text" [value]="i.BefDevCst" (input)="i.BefDevCst=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem">
+                            <input type="text" [value]="i.AftDevHr" (input)="i.AftDevHr=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem">
+                            <input type="text" [value]="i.AftDevCst" (input)="i.AftDevCst=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem">
+                            <input type="image" class="dnd-logo-1" src="assets/images/dnd.png" alt="image">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-2 grid-data">
-                <input type="text" [value]="i.BefDevCst" (input)="i.BefDevCst=$event.target.value">
+            <div class="row pagination">
+                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                    <li [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a (click)="setPage(1)"><span>First</span></a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a (click)="setPage(pager.currentPage - 1)"><span>Previous</span></a>
+                    </li>
+                    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                        <a (click)="setPage(page)"><span>{{page}}</span></a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.currentPage + 1)"><span>Next</span></a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.totalPages)"><span>Last</span></a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-lg-2 grid-data">
-                <input type="text" [value]="i.AftDevCst" (input)="i.AftDevCst=$event.target.value">
-            </div>
-          </div>
         </div>
     </div>
-        <button (click)="submit()">Submit</button>
+    <button (click)="submit()">Submit</button>
 </div>

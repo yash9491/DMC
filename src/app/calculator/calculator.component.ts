@@ -11,7 +11,7 @@ export class CalculatorComponent implements OnInit {
 
   public allItems: any;
   public pager: any = {}
-  pagedItems: any[];
+  pagedItems: Speedtomarket[];
   name: any="Devops";
   speedtomarket: Speedtomarket[];
 
@@ -19,7 +19,7 @@ export class CalculatorComponent implements OnInit {
     this.speedtomarket = [
       {
         QuestionId: 1, 
-        Question:'What is Devops Durations',
+        Question:'What is the Agile implemetation duration ',
         BefDevHr: 23.96,
         AftDevHr: 18.56,
         BefDevCst: 256.36,
@@ -27,16 +27,82 @@ export class CalculatorComponent implements OnInit {
       },
       {
         QuestionId: 2, 
-        Question:'What is Planning Duration',
+        Question:'What is Planning stage duration',
         BefDevHr: 42.58,
         AftDevHr: 22.23,
         BefDevCst: 52.12,
         AftDevCst: 95.63
+      },
+      {
+        QuestionId: 3, 
+        Question:'What is the Agile implemetation duration',
+        BefDevHr: 23.96,
+        AftDevHr: 18.56,
+        BefDevCst: 256.36,
+        AftDevCst: 120.00
+      },
+      {
+        QuestionId: 4, 
+        Question:'What is Planning stage duration',
+        BefDevHr: 42.58,
+        AftDevHr: 22.23,
+        BefDevCst: 52.12,
+        AftDevCst: 95.63
+      },
+      {
+        QuestionId: 5, 
+        Question:'What is the Agile implemetation duration',
+        BefDevHr: 23.96,
+        AftDevHr: 18.56,
+        BefDevCst: 256.36,
+        AftDevCst: 120.00
+      },
+      {
+        QuestionId: 6, 
+        Question:'tttttttttttttttttttttttttttttttttt',
+        BefDevHr: 23.96,
+        AftDevHr: 18.56,
+        BefDevCst: 256.36,
+        AftDevCst: 120.00
+      },
+      {
+        QuestionId: 7, 
+        Question:'iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii',
+        BefDevHr: 42.58,
+        AftDevHr: 22.23,
+        BefDevCst: 52.12,
+        AftDevCst: 95.63
+      },
+      {
+        QuestionId: 8, 
+        Question:'yyyyyyyyyyyyyyyyyyyyyyyy',
+        BefDevHr: 23.96,
+        AftDevHr: 18.56,
+        BefDevCst: 256.36,
+        AftDevCst: 120.00
+      },
+      {
+        QuestionId: 9, 
+        Question:'hhhhhhhhhhhhhhhhhhhhhh',
+        BefDevHr: 42.58,
+        AftDevHr: 22.23,
+        BefDevCst: 52.12,
+        AftDevCst: 95.63
+      },
+      {
+        QuestionId: 10, 
+        Question:'ffffffffffffffffffffffffffffffff',
+        BefDevHr: 23.96,
+        AftDevHr: 18.56,
+        BefDevCst: 256.36,
+        AftDevCst: 120.00
       }
     ];
   }
 
   ngOnInit() {
+    this.allItems = this.speedtomarket;
+    this.setPage(1);
   }
 
   setPage(page: number) {
