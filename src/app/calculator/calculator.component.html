@@ -17,8 +17,32 @@
             </div>
         </div>
     </div>
+    <div class="row categories-calc">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="row">
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/speedtomarket.png" alt="image"><br>
+                    <span>Speed To Market</span>
+                </div>
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/cost.png" alt="image"><br>
+                    <span>Cost</span>
+                </div>
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/quality.png" alt="image"><br>
+                    <span>Quality</span>
+                </div>
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/changerate.png" alt="image"><br>
+                    <span>Change Rate</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-lg-8 offset-lg-2 table-ribbon"></div>
+        <div class="col-lg-8 offset-lg-2 table-ribbon">
+            
+        </div>
     </div>
     <div class="row main-table">
         <div class="col-lg-10 offset-lg-1 grid-table">
@@ -91,25 +115,32 @@
                 </div>
             </div>
             <div class="row pagination">
-                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                    <li [ngClass]="{disabled:pager.currentPage === 1}">
-                        <a (click)="setPage(1)"><span>First</span></a>
-                    </li>
-                    <li [ngClass]="{disabled:pager.currentPage === 1}">
-                        <a (click)="setPage(pager.currentPage - 1)"><span>Previous</span></a>
-                    </li>
-                    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                        <a (click)="setPage(page)"><span>{{page}}</span></a>
-                    </li>
-                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                        <a (click)="setPage(pager.currentPage + 1)"><span>Next</span></a>
-                    </li>
-                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                        <a (click)="setPage(pager.totalPages)"><span>Last</span></a>
-                    </li>
-                </ul>
+                <div class="col-lg-2">
+                    <span><button class="getstarted prev-cat" (click)="navigatetocalc()">Prev Category</button></span>
+                </div>
+                <div class="col-lg-8">
+                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(1)"><span>First</span></a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(pager.currentPage - 1)"><span>Previous</span></a>
+                        </li>
+                        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                            <a (click)="setPage(page)"><span>{{page}}</span></a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.currentPage + 1)"><span>Next</span></a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.totalPages)"><span>Last</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                        <span><button class="getstarted next-cat" (click)="navigatetocalc()">Next Category</button></span>
+                </div>
             </div>
         </div>
     </div>
-    <button (click)="submit()">Submit</button>
 </div>
