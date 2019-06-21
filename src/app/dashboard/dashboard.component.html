@@ -1,121 +1,145 @@
 <div class="container">
-    <div class="row menu-bar">
-      <div class="col-md-2 col-lg-2 logo">
-          <span>DevOps - MC</span>
-      </div>
-      <div class="col-lg-4 offset-lg-6">
-          <div class="row menu-bar-left">
-            <div class="col-lg-3 menu-options">
-              <span>Home</span>
-            </div>
-            <div class="col-lg-3 menu-options">
-              <span><a class="about-button" href="#About">About</a></span>
-            </div>
-            <div class="col-lg-6 menu-options">
-              <span>d.yaswanth.chandra</span>
-            </div>
-          </div>
+  <div class="row menu-bar">
+    <div class="col-md-2 col-lg-2 logo">
+      <span>DevOps - MC</span>
+    </div>
+    <div class="col-lg-4 offset-lg-6">
+      <div class="row menu-bar-left">
+        <div class="col-lg-3 menu-options">
+            <span><a class="about-button" href="#">Home</a></span>
+        </div>
+        <div class="col-lg-3 menu-options">
+          <span><a class="about-button" href="#About">About</a></span>
+        </div>
+        <div class="col-lg-6 menu-options">
+          <span>d.yaswanth.chandra</span>
+        </div>
       </div>
     </div>
-    <div class="row green-ribbon">
-      <div class="col-lg-6 devops-logo">
-          <img class="devops-main-logo" src="assets/images/devops.png" alt="image">
-      </div>
-      <div class="col-lg-6 content"> 
-          <span class="main-heading">DevOps Metrics Calculator</span><br>
-          <span class="sub-heading">A Calculator that Never Settle</span><br><br><br>
-          <span><button class="getstarted" (click)="navigatetocalc()">Click here to get started</button></span>
-      </div>
+  </div>
+  <div class="row green-ribbon">
+    <div class="col-lg-6 devops-logo">
+      <img class="devops-main-logo" src="assets/images/devops.png" alt="image">
     </div>
-    <div class="row calc-tiles">
-  
+    <div class="col-lg-6 content">
+      <span class="main-heading">DevOps Metrics Calculator</span><br>
+      <span class="sub-heading">A Calculator that Never Settle</span><br><br><br>
+      <span><button type="button" class="getstarted" data-toggle="modal" data-target="#myModal">Click here to get
+          started</button></span>
     </div>
-    <div class="row about-block" id="About">
+  </div>
+  <div class="row about-block" id="calc">
       <div class="col-lg-12">
-          <span class="about-logo">About</span><br>
-       </div> 
-    </div>
-    <hr>
-    <div class="row dashboard-about-tile">
-      <div class="col-lg-6 dashboard-about-tile-left">
-        <img class="dasboard-logo" src="assets/images/gears.png" alt="image">
-      </div>
-      <div class="col-lg-6 dashboard-about-tile-right">
-          <div class="dashboard-about-content-right">
-            <span>Metrics Calculator</span>
-            <div class="small-border-right">
-            </div>
-            <div class="dashboard-about-content-1">
-              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing the Devops</span>
-            </div>
-          </div>
+        <span class="about-logo">My Calculations</span><br>
       </div>
     </div>
     <hr>
-    <div class="row dashboard-about-tile">
-        <div class="col-lg-6 dashboard-about-tile-right">
-            <div class="dashboard-about-content-left">
-              <span>Speed To Market</span><br>
-              <div class="small-border-left">
+    <div class="mycalculations">
+      <div class="row mycalculations-none">
+        <span>You don't have any Submitted Calculations</span>
+      </div>
+      </div>
+  <!-- (click)="navigatetocalc()" -->
+  <div class="row about-block" id="About">
+    <div class="col-lg-12">
+      <span class="about-logo">About</span><br>
+    </div>
+  </div>
+  <hr>
   
-              </div>
-              <div class="dashboard-about-content-1">
-                <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing the Devops</span>
-              </div>
-            </div>
+  <div class="row dashboard-about-tile">
+
+    <div class="col-lg-6 dashboard-about-tile-left">
+      <div class="tile-left">
+        <img class="dasboard-logo" src="assets/images/gears.png" alt="image"><br>
+        <div class="dashboard-about-content-right">
+          <span>Metrics Calculator</span>
+          <div class="dashboard-about-content-1">
+            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+              the
+              Devops</span>
+          </div>
         </div>
-      <div class="col-lg-6 dashboard-about-tile-left">
-        <img class="dasboard-logo" src="assets/images/speedtomarket.png" alt="image">
       </div>
-    </div>
-    <hr>
-    <div class="row dashboard-about-tile">
-      <div class="col-lg-6 dashboard-about-tile-left">
+      <div class="tile-left">
         <img class="dasboard-logo" src="assets/images/cost.png" alt="image">
-      </div>
-      <div class="col-lg-6 dashboard-about-tile-right">
-          <div class="dashboard-about-content-right">
-            <span>Cost</span>
-            <div class="small-border-right">
-            </div>
-            <div class="dashboard-about-content-1">
-              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing the Devops</span>
-            </div>
+        <div class="dashboard-about-content-right">
+          <span>Cost</span>
+          <div class="dashboard-about-content-1">
+            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+              the
+              Devops</span>
           </div>
-      </div>
-    </div>
-    <hr>
-    <div class="row dashboard-about-tile">
-        <div class="col-lg-6 dashboard-about-tile-right">
-            <div class="dashboard-about-content-left">
-              <span>Quality</span><br>
-              <div class="small-border-left">
-  
-              </div>
-              <div class="dashboard-about-content-1">
-                <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing the Devops</span>
-              </div>
-            </div>
         </div>
-      <div class="col-lg-6 dashboard-about-tile-left">
-        <img class="dasboard-logo" src="assets/images/quality.png" alt="image">
+      </div>
+      <div class="tile-left">
+        <img class="dasboard-logo" src="assets/images/changerate.png" alt="image">
+        <div class="dashboard-about-content-right">
+          <span>Change Rate</span>
+          <div class="dashboard-about-content-1">
+            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+              the
+              Devops</span>
+          </div>
+        </div>
       </div>
     </div>
-    <hr>
-    <div class="row dashboard-about-tile">
-      <div class="col-lg-6 dashboard-about-tile-left">
-        <img class="dasboard-logo" src="assets/images/changerate.png" alt="image">
-      </div>
-      <div class="col-lg-6 dashboard-about-tile-right">
-          <div class="dashboard-about-content-right">
-            <span>Change Rate</span>
-            <div class="small-border-right">
-            </div>
-            <div class="dashboard-about-content-1">
-              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing the Devops</span>
-            </div>
+
+    <div class="col-lg-6 dashboard-about-tile-right">
+      <div class="tile-right">
+        <img class="dasboard-logo" src="assets/images/speedtomarket.png" alt="image">
+        <div class="dashboard-about-content-left">
+          <span>Speed To Market</span><br>
+          <div class="dashboard-about-content-1">
+            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+              the
+              Devops</span>
           </div>
+        </div>
+      </div>
+      <div class="tile-right">
+        <img class="dasboard-logo" src="assets/images/quality.png" alt="image">
+        <div class="dashboard-about-content-left">
+          <span>Quality</span><br>
+          <div class="dashboard-about-content-1">
+            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+              the
+              Devops</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div clas="row">
+      <div class="col-lg-4 offset-lg-4">
+
       </div>
     </div>
     <hr>
   </div>
+
+  
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Project Details</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <span>Project Name:</span><input type="text"><br>
+          <span>Client Name:</span><input type="text"><br>
+          <span>Inductry Group:</span><input type="text"><br>
+          <span>Work Location:</span><input type="text"><br>
+        </div>
+        <div class="modal-footer">
+            <span><button type="button" class="getstarted" data-dismiss="modal" (click)="navigatetocalc()">Submit</button></span>
+          <button type="button" class="getstarted" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+

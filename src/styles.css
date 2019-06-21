@@ -29,8 +29,8 @@ html {
     font-size: 24px;
 }
 .dasboard-logo{
-    height:120px;
-    width:120px;
+    height:60px;
+    width:60px;
 }
 .menu-bar .menu-options{
     padding-top:15px;
@@ -97,40 +97,48 @@ a{
     margin-top: 25px;
 }
 .dashboard-about-tile{
-    height:180px;
+    height:auto;
 }
 .dashboard-about-tile{
     text-align:center;
 }
 .dashboard-about-tile-right{
-    text-align:left;
+    text-align:center;
+    float:center;
 }
 .dashboard-about-tile-left{
-    margin-top:15px;
+    margin-top:5px;
+    text-align:center;
+    border-right: 1px dotted black;
+
 }
 .small-border-right{
     width:100px;
     margin-top:15px;
+    text-align:center;
     height: 7px;
     background-color: #008a00;
 }
+.green-border{
+
+}
 .small-border-left{
     width:100px;
-    margin-left:435px;
+    text-align:center;
     margin-top:15px;
     height: 7px;
     background-color: #008a00;
 }
 .dashboard-about-content-right{
-    padding-top:25px;
+    padding-top:10px;
     padding-bottom: 10px;
     font: normal normal normal 25px/1.1em 'eb garamond',serif;
     color: #2F2E2E;
 }
 .dashboard-about-content-left{
-    padding-top:25px;
+    padding-top:10px;
     padding-bottom: 10px;
-    text-align:right;
+    text-align:center;
     font: normal normal normal 25px/1.1em 'eb garamond',serif;
     color: #2F2E2E;
 }
@@ -148,6 +156,9 @@ a{
     border-radius: 10px;
     z-index: 10;
     box-shadow: 1px 1px 1px 1px #888888;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 .grid-table{
     position: relative;
@@ -277,4 +288,24 @@ a:hover{
 }
 .next-cat{
     float: right;
+}
+.current-category-label{
+    color: white;
+    font-weight: 600;
+}
+.tile-left{
+    margin-top:25px;
+}
+.tile-right{
+    margin-top:25px;
+}
+.mycalculations{
+    height: 250px;
+}
+.mycalculations-none{
+    padding-top:125px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }

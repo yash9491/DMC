@@ -6,7 +6,7 @@
         <div class="col-lg-4 offset-lg-6">
             <div class="row menu-bar-left">
                 <div class="col-lg-3 menu-options">
-                    <span>Home</span>
+                        <span><a class="about-button" (click)="gotoHome()">Home</a></span>
                 </div>
                 <div class="col-lg-3 menu-options">
                     <span>About</span>
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
         <div class="col-lg-8 offset-lg-2 table-ribbon">
-            
+            <span class="current-category-label">Current Category: Speed To Market</span>
         </div>
     </div>
     <div class="row main-table">
@@ -138,7 +138,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                        <span><button class="getstarted next-cat" (click)="navigatetocalc()">Next Category</button></span>
+                    <span><button class="getstarted next-cat" (click)="navigatetocalc()">Next Category</button></span>
                 </div>
             </div>
         </div>
