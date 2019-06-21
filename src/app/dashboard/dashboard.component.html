@@ -6,7 +6,7 @@
     <div class="col-lg-4 offset-lg-6">
       <div class="row menu-bar-left">
         <div class="col-lg-3 menu-options">
-            <span><a class="about-button" href="#">Home</a></span>
+          <span><a class="about-button" href="#">Home</a></span>
         </div>
         <div class="col-lg-3 menu-options">
           <span><a class="about-button" href="#About">About</a></span>
@@ -29,16 +29,16 @@
     </div>
   </div>
   <div class="row about-block" id="calc">
-      <div class="col-lg-12">
-        <span class="about-logo">My Calculations</span><br>
-      </div>
+    <div class="col-lg-12">
+      <span class="about-logo">My Calculations</span><br>
     </div>
-    <hr>
-    <div class="mycalculations">
-      <div class="row mycalculations-none">
-        <span>You don't have any Submitted Calculations</span>
-      </div>
-      </div>
+  </div>
+  <hr>
+  <div class="mycalculations">
+    <div class="row mycalculations-none">
+      <span>You don't have any Submitted Calculations</span>
+    </div>
+  </div>
   <!-- (click)="navigatetocalc()" -->
   <div class="row about-block" id="About">
     <div class="col-lg-12">
@@ -46,7 +46,7 @@
     </div>
   </div>
   <hr>
-  
+
   <div class="row dashboard-about-tile">
 
     <div class="col-lg-6 dashboard-about-tile-left">
@@ -117,29 +117,41 @@
     <hr>
   </div>
 
-  
+
 </div>
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Project Details</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Project Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="row popup">
+          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Project Name:</span></div>
+          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Project Name"><br></div>
         </div>
-        <div class="modal-body">
-          <span>Project Name:</span><input type="text"><br>
-          <span>Client Name:</span><input type="text"><br>
-          <span>Inductry Group:</span><input type="text"><br>
-          <span>Work Location:</span><input type="text"><br>
+        <div class="row popup">
+          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Client Name:</span></div>
+          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Client Name"><br></div>
         </div>
-        <div class="modal-footer">
-            <span><button type="button" class="getstarted" data-dismiss="modal" (click)="navigatetocalc()">Submit</button></span>
-          <button type="button" class="getstarted" data-dismiss="modal">Close</button>
+        <div class="row popup">
+          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Inductry Group:</span></div>
+          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Industry Group"><br></div>
+        </div>
+        <div class="row popup">
+          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Work Location:</span></div>
+          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Work Location"><br></div>
         </div>
       </div>
-  
+      <div class="modal-footer">
+        <span><button type="button" class="getstarted" data-dismiss="modal"
+            (click)="navigatetocalc()">Submit</button></span>
+        <button type="button" class="getstarted" data-dismiss="modal">Close</button>
+      </div>
     </div>
-  </div>
 
+  </div>
+</div>

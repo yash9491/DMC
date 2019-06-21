@@ -5,6 +5,8 @@ html {
       border:0;
       text-align: center;
       width:100%;
+      border-radius: 10px;
+      border-color: blue;
   }
   .main{
       background-color: #ebeef4;
@@ -308,4 +310,27 @@ a:hover{
     display: flex;
     align-items: center;
     justify-content: center; 
+}
+.popup-text .popup-textbox{
+    display:inline-block;
+    padding-top:50px;
+}
+.popup-textbox{
+    border: 1px dotted black;
+}
+.modal-header{
+    background-color: #008a00; 
+    color: white;
+    font-weight: 600;
+    height: 50px;
+}
+.popup{
+    padding-top:15px;
+}
+.submit{
+    margin-top:5px;
+    text-align:center;
+}
+.btn-primary{
+    font-weight:600;
 }

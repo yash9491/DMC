@@ -114,6 +114,7 @@ export class CalculatorComponent implements OnInit {
     console.log(this.speedtomarket);
   }
   gotoHome(){
+    alert("Are you sure to navaigate to Home page?");
     this._router.navigateByUrl('');
   }
 
