@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import {PagerServiceService} from './pager-service.service';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 const appRoutes : Routes=[{
   path:'calculator', component: CalculatorComponent
@@ -25,7 +26,8 @@ const appRoutes : Routes=[{
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [
     PagerServiceService

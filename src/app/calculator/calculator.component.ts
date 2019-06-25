@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PagerServiceService } from '../pager-service.service';
 import { Speedtomarket } from '../Questions';
 import {Router} from '@angular/router';
+import {MetricsCalculatorService} from '../metrics-calculator.service';
 
 @Component({
   selector: 'app-calculator',
@@ -16,7 +17,7 @@ export class CalculatorComponent implements OnInit {
   name: any = "Devops";
   speedtomarket: Speedtomarket[];
 
-  constructor(private _pagerservice: PagerServiceService, private _router:Router) {
+  constructor(private _pagerservice: PagerServiceService, private metricscalc: MetricsCalculatorService, private _router:Router) {
     this.speedtomarket = [
       {
         QuestionId: 1,
@@ -104,6 +105,10 @@ export class CalculatorComponent implements OnInit {
   ngOnInit() {
     this.allItems = this.speedtomarket;
     this.setPage(1);
+    this.metricscalc.getMetrics().subscribe(
+      (data:any)=>{console.log(data)},
+      (error: any)=>{console.log(error)}
+    )
   }
 
   setPage(page: number) {
@@ -114,7 +119,8 @@ export class CalculatorComponent implements OnInit {
     console.log(this.speedtomarket);
   }
   gotoHome(){
-    alert("Are you sure to navaigate to Home page?");
+    var result = confirm("Are you sure to navaigate to Home page?");
+    if(result == true)
     this._router.navigateByUrl('');
   }
 
