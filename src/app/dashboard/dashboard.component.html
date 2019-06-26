@@ -117,41 +117,55 @@
     <hr>
   </div>
 
+  <div class="footer">
+    <p>Footer</p>
+  </div>
 
 </div>
 <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-lg">
-
+  <div class="modal-dialog modal-md">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Project Details</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body">
-        <div class="row popup">
-          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Project Name:</span></div>
-          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Project Name"><br></div>
+      <div>
+        <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+          <div class="row popup">
+            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Project Name:</span></div>
+          </div>
+          <div class="row popup">
+            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="projectname"
+                placeholder="Project Name"><br></div>
+          </div>
+          <div class="row popup">
+            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Client Name:</span></div>
+          </div>
+          <div class="row popup">
+            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="clientname"
+                placeholder="Client Name"><br></div>
+          </div>
+          <div class="row popup">
+            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Industry Group:</span></div>
+          </div>
+          <div class="row popup">
+            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="industrygroup"
+                placeholder="Industry Group"><br></div>
+          </div>
+          <div class="row popup">
+            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Work Location:</span></div>
+          </div>
+          <div class="row popup">
+            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="worklocation"
+                placeholder="Work Location"><br></div>
+          </div>
+          <div class="modal-footer">
+          <span><button type="submit" class="getstarted"  value="Submit">Submit</button></span>
+          <button type="button" class="getstarted" id="close-modal" data-dismiss="modal">Close</button>
         </div>
-        <div class="row popup">
-          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Client Name:</span></div>
-          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Client Name"><br></div>
-        </div>
-        <div class="row popup">
-          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Inductry Group:</span></div>
-          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Industry Group"><br></div>
-        </div>
-        <div class="row popup">
-          <div class="col-lg-3 offset-lg-2"><span class="popup-text">Work Location:</span></div>
-          <div class="col-lg-3"><input class="popup-textbox" type="text" placeholder="Work Location"><br></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <span><button type="button" class="getstarted" data-dismiss="modal"
-            (click)="navigatetocalc()">Submit</button></span>
-        <button type="button" class="getstarted" data-dismiss="modal">Close</button>
+        </form>
       </div>
     </div>
-
   </div>
 </div>
