@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule }    from '@angular/common/http';
 
 const appRoutes : Routes=[{
-  path:'calculator', component: CalculatorComponent
+  path:'calculator/:uuid', component: CalculatorComponent
 },
 {
   path:'', component:DashboardComponent

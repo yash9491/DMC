@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProjectData } from '../projectdata';
 import {MetricsCalculatorService} from '../metrics-calculator.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   industrygroup;
   worklocation;
   formdata;
+  uuid;
   projectdata : ProjectData[];
   hideModal: boolean = false;
   
@@ -31,7 +33,7 @@ export class DashboardComponent implements OnInit {
   }
   
   navigatetocalc(){
-    this._router.navigateByUrl('/calculator');
+    this._router.navigateByUrl('/calculator/'+this.uuid);
   }
 
   onClickSubmit(data) {
@@ -43,11 +45,16 @@ export class DashboardComponent implements OnInit {
     }];
     console.log(this.projectdata);
     this._metricscal.postProjectDetails(this.projectdata).subscribe(
-      (data: any)=>{console.log("Post Data Success"+data)},
+      (data: any)=>{
+        this.uuid = data;
+        console.log("Post Data Success"+data)
+      },
       (error: any)=>{console.log(error)},
-      ()=>{}
+      ()=>{
+        document.getElementById("close-modal").click();
+        this.navigatetocalc();
+      }
     );
-    document.getElementById("close-modal").click();
-    this.navigatetocalc();
+    
   }
 }

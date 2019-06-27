@@ -14,6 +14,14 @@ export class MetricsCalculatorService {
   }
 
   public postProjectDetails(data): Observable<any>{
-    return this.http.post("http://127.0.0.1:5000/api/addProjectDetails",data);
+    return this.http.post("http://127.0.0.1:5000/api/addProjectDetails",data,{ responseType: 'text' });
+  }
+
+  public getMetricValues(UUID) : Observable<any>{
+    return this.http.get<any>("http://127.0.0.1:5000/api/getMetricValues", {
+      params: {
+        projectUUID: UUID
+      },
+    });
   }
 }
