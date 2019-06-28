@@ -42,7 +42,7 @@ html {
     font-weight: 500px;
 }
 .green-ribbon{
-    height:250px;
+    height:350px;
     border-bottom: 1px dotted black;
     padding-top:25px;
     display: block;
@@ -56,9 +56,9 @@ html {
     display: inline-block;
 }
 .devops-main-logo{
-    height:200px;
-    width: 450px;  
-    margin-top:-70px;
+    height:180px;
+    width: 400px;  
+    margin-top:-120px;
 }
 .green-ribbon .content{
     color: white;
@@ -94,14 +94,16 @@ a{
 .about-block{
     position: relative;
     height:30px;  
+    top:250px;
     text-align: center;
     margin-top: 25px;
 }
 .dashboard-about-tile{
+    border-top: 1px dotted black;
+    text-align: center;
+    position: relative;
+    top: 270px;
     height:auto;
-}
-.dashboard-about-tile{
-    text-align:center;
 }
 .dashboard-about-tile-right{
     text-align:center;
@@ -119,9 +121,52 @@ a{
     text-align:center;
     height: 7px;
     background-color: #008a00;
+}   
+.mycalc-tiles-img{
+    height: 25px;
+    width: 25px;
 }
-.green-border{
-
+.mycalc-tiles-footer{
+    bottom: 0%;
+    position: relative;
+    border-top: 1px dotted #008a00;
+}
+.mycalc-content{
+    padding-top:5px;
+}
+.mycalc-header{
+    height:50px;
+    border-bottom: 1px dotted #008a00;
+}
+.mycalc-content-left{
+    padding-top: 3px;
+    padding-bottom: 5px;
+    font-size: 11px;
+}
+.mycalc-content-right{
+    padding-top: 3px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.tile-img{
+    height: 60px;
+    width:100%;
+}
+.mycalc-logo{
+    position: relative;
+    top: 20px;
+    text-align: center;
+    color: #008a00;
+    font-size: 23px;
+    font-weight: bold;
+}
+.calculations-tile{
+    height: 280px;
+    position: relative;
+    top: 30px;
+    border: 1px solid #008a00;
+    margin-left: 60px;
 }
 .small-border-left{
     width:100px;
@@ -301,7 +346,15 @@ a:hover{
     margin-top:25px;
 }
 .mycalculations{
-    height: 250px;
+    top:250px;
+    height: 360px;
+    border: 1px solid #008a00;
+    position: absolute;
+    margin-top: 30px;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px #008a00;
 }
 .mycalculations-none{
     padding-top:125px;

@@ -86,11 +86,22 @@ export class CalculatorComponent implements OnInit {
     for(var i = 0; i < this.changerate.length; i++){
       this.speedtomarket.push(this.changerate[i]);
     }
-    console.log(this.speedtomarket);
+    this.modifiedvalues = this.speedtomarket;
+    this.metricscalc.updateMetricValues(this.modifiedvalues, this.projectUUID).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      },
+      () =>{
+        this.gotoHome();
+      }
+    );
   }
 
   gotoHome() {
-    var result = confirm("Are you sure to navaigate to Home page?");
+    var result = confirm("You are going to submit the calculation?");
     if (result == true)
       this._router.navigateByUrl('');
   }
@@ -115,7 +126,7 @@ export class CalculatorComponent implements OnInit {
       this.filterMetrics('SpeedToMarket');
     }
   }
-  
+
   nextCategory(){
     if(this.CurrentCategoryNo == 1){
       this.CurrentCategoryNo = this.CurrentCategoryNo + 1;

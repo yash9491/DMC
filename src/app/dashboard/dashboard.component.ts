@@ -18,12 +18,22 @@ export class DashboardComponent implements OnInit {
   worklocation;
   formdata;
   uuid;
+  mycalculations : any[];
   projectdata : ProjectData[];
   hideModal: boolean = false;
   
   constructor(private _router:Router, private _metricscal: MetricsCalculatorService) { }
 
   ngOnInit() {
+    this._metricscal.getCalculatedProjects().subscribe(
+      data => {
+        this.mycalculations = data;
+        console.log(this.mycalculations);
+      },
+      err => {
+        console.log(err);
+      }
+    );
     this.formdata = new FormGroup({
       projectname: new FormControl('', Validators.required),
       clientname: new FormControl(""),

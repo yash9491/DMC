@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row menu-bar">
     <div class="col-md-2 col-lg-2 logo">
       <span>DevOps - MC</span>
@@ -28,15 +28,59 @@
           started</button></span>
     </div>
   </div>
-  <div class="row about-block" id="calc">
-    <div class="col-lg-12">
-      <span class="about-logo">My Calculations</span><br>
-    </div>
-  </div>
-  <hr>
-  <div class="mycalculations">
-    <div class="row mycalculations-none">
-      <span>You don't have any Submitted Calculations</span>
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1 mycalculations">
+      <div class="mycalc-logo"><span>Calculations you made</span><br></div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 calculations-tile" [style.height]="height"
+          *ngFor="let mycalc of mycalculations">
+          <div class="row">
+            <div class="col-lg-12 mycalc-header">
+                
+            </div>
+          </div>
+          <div class="mycalc-content">
+            <div class="row">
+            <div class="col-lg-6 offset-lg-1 mycalc-content-left">Project Name:</div>
+            <div class="col-lg-5 mycalc-content-right">{{mycalc.ProjectName}}</div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Client Name:</div>
+              <div class="col-lg-5 mycalc-content-right">{{mycalc.ClientName}}</div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Industry Group:</div>
+              <div class="col-lg-5 mycalc-content-right">{{mycalc.IndustryGroup}}</div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Work Location:</div>
+              <div class="col-lg-5 mycalc-content-right">{{mycalc.WorkLocation}}</div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Cost Saved:</div>
+              <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalCostSaved | number : '1.2-2'}}</div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Hours Saved:</div>
+              <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalHoursSaved | number : '1.2-2'}}</div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Resources Saved:</div>
+              <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalResourcesSaved | number : '1.2-2'}}</div>
+          </div>
+          </div>
+          <footer id="footer" class="mycalc-tiles-footer">
+            <div class="row">
+              <div class="col-lg-3 offset-lg-3">
+                <img class="mycalc-tiles-img" src="assets/images/edit.png" alt="image">
+              </div>
+              <div class="col-lg-3 offset-lg-1">
+                <img class="mycalc-tiles-img" src="assets/images/delete.png" alt="image">
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
     </div>
   </div>
   <!-- (click)="navigatetocalc()" -->
@@ -45,7 +89,6 @@
       <span class="about-logo">About</span><br>
     </div>
   </div>
-  <hr>
 
   <div class="row dashboard-about-tile">
 
@@ -117,9 +160,9 @@
     <hr>
   </div>
 
-  <div class="footer">
+  <!-- <div class="footer">
     <p>Footer</p>
-  </div>
+  </div> -->
 
 </div>
 <div class="modal fade" id="myModal" role="dialog">
@@ -161,9 +204,9 @@
                 placeholder="Work Location"><br></div>
           </div>
           <div class="modal-footer">
-          <span><button type="submit" class="getstarted"  value="Submit">Submit</button></span>
-          <button type="button" class="getstarted" id="close-modal" data-dismiss="modal">Close</button>
-        </div>
+            <span><button type="submit" class="getstarted" value="Submit">Submit</button></span>
+            <button type="button" class="getstarted" id="close-modal" data-dismiss="modal">Close</button>
+          </div>
         </form>
       </div>
     </div>
