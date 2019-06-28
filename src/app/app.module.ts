@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import {PagerServiceService} from './pager-service.service';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule }    from '@angular/common/http';
 
 const appRoutes : Routes=[{
-  path:'calculator', component: CalculatorComponent
+  path:'calculator/:uuid', component: CalculatorComponent
 },
 {
   path:'', component:DashboardComponent
@@ -26,6 +26,7 @@ const appRoutes : Routes=[{
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule ,
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],

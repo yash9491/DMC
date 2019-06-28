@@ -41,7 +41,7 @@
     </div>
     <div class="row">
         <div class="col-lg-8 offset-lg-2 table-ribbon">
-            <span class="current-category-label">Current Category: Speed To Market</span>
+            <span class="current-category-label">Current Category: {{CurrentCategory}}</span>
         </div>
     </div>
     <div class="row main-table">
@@ -90,34 +90,35 @@
                     </div>
                 </div>
             </div>
-            <div class="row" *ngFor="let i of pagedItems">
+            <div class="row" *ngFor="let i of allItems | slice: firstindex : lastindex">
                 <div class="col-lg-4 grid-data-mem">
-                    <span>{{i.Question}}</span>
+                    <span>{{i.Metric}}</span>
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col grid-data-mem">
-                            <input type="text" [value]="i.BefDevHr" (input)="i.BefDevHr=$event.target.value">
+                            <input type="text" [value]="i.BeforeDevOpsHrs" (input)="i.BeforeDevOpsHrs=$event.target.value">
                         </div>
                         <div class="col grid-data-mem">
-                            <input type="text" [value]="i.BefDevCst" (input)="i.BefDevCst=$event.target.value">
+                            <input type="text" [value]="i.BeforeDevOpsCost" (input)="i.BeforeDevOpsCost=$event.target.value">
                         </div>
                         <div class="col grid-data-mem">
-                            <input type="text" [value]="i.AftDevHr" (input)="i.AftDevHr=$event.target.value">
+                            <input type="text" [value]="i.AfterDevOpsHrs" (input)="i.AfterDevOpsHrs=$event.target.value">
                         </div>
                         <div class="col grid-data-mem">
-                            <input type="text" [value]="i.AftDevCst" (input)="i.AftDevCst=$event.target.value">
+                            <input type="text" [value]="i.AfterDevOpsCost" (input)="i.AfterDevOpsCost=$event.target.value">
                         </div>
                         <div class="col grid-data-mem">
-                            <input type="image" class="dnd-logo-1" src="assets/images/dnd.png" alt="image">
+                            <input type="image" (click)="greyout(event)" class="dnd-logo-1" src="assets/images/dnd.png" alt="image">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row pagination">
-                <div class="col-lg-2">
-                    <span><button class="getstarted prev-cat" (click)="navigatetocalc()">Prev Category</button></span>
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo != 1">
+                    <span><button class="getstarted prev-cat" (click)="previousCategory()">Prev Category</button></span>
                 </div>
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo == 1"></div>
                 <div class="col-lg-8">
                     <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
                         <li [ngClass]="{disabled:pager.currentPage === 1}">
@@ -137,15 +138,20 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-2">
-                    <span><button class="getstarted next-cat" (click)="gotoHome()">Next Category</button></span>
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo != 4">
+                    <span><button class="getstarted next-cat" (click)="nextCategory()">Next Category</button></span>
                 </div>
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo == 4"></div>
             </div>
             <div class="row submit">
                 <div class="col">
-                        <button type="button" class="btn btn-primary" (click)="gotoHome()">Submit</button>
+                        <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
                 </div>
             </div>
         </div>
     </div>
+    
+  <div class="footer">
+    <p>Footer</p>
+  </div>
 </div>

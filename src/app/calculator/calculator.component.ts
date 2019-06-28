@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PagerServiceService } from '../pager-service.service';
-import { Speedtomarket } from '../Questions';
-import {Router} from '@angular/router';
-import {MetricsCalculatorService} from '../metrics-calculator.service';
+import { Metrics } from '../Questions';
+import { Router } from '@angular/router';
+import { MetricsCalculatorService } from '../metrics-calculator.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-calculator',
@@ -12,116 +13,139 @@ import {MetricsCalculatorService} from '../metrics-calculator.service';
 export class CalculatorComponent implements OnInit {
 
   public allItems: any;
-  public pager: any = {}
-  pagedItems: Speedtomarket[];
+  public pager: any = {};
+  projectUUID;
+  metricvalues: Metrics[];
+  pagedItems: Metrics[];
   name: any = "Devops";
-  speedtomarket: Speedtomarket[];
+  UUID: any[];
+  firstindex : number;
+  lastindex: number;
+  CurrentCategory : any = 'Speed To Market';
+  CurrentCategoryNo: number = 1;
+  speedtomarket: Metrics[];
+  cost:Metrics[];
+  quality: Metrics[];
+  changerate: Metrics[];
+  modifiedvalues: Metrics[];
 
-  constructor(private _pagerservice: PagerServiceService, private metricscalc: MetricsCalculatorService, private _router:Router) {
-    this.speedtomarket = [
-      {
-        QuestionId: 1,
-        Question: 'What is the Agile implemetation duration ',
-        BefDevHr: 23.96,
-        AftDevHr: 18.56,
-        BefDevCst: 256.36,
-        AftDevCst: 120.00
-      },
-      {
-        QuestionId: 2,
-        Question: 'What is Planning stage duration',
-        BefDevHr: 42.58,
-        AftDevHr: 22.23,
-        BefDevCst: 52.12,
-        AftDevCst: 95.63
-      },
-      {
-        QuestionId: 3,
-        Question: 'What is the Agile implemetation duration',
-        BefDevHr: 23.96,
-        AftDevHr: 18.56,
-        BefDevCst: 256.36,
-        AftDevCst: 120.00
-      },
-      {
-        QuestionId: 4,
-        Question: 'What is Planning stage duration',
-        BefDevHr: 42.58,
-        AftDevHr: 22.23,
-        BefDevCst: 52.12,
-        AftDevCst: 95.63
-      },
-      {
-        QuestionId: 5,
-        Question: 'What is the Agile implemetation duration',
-        BefDevHr: 23.96,
-        AftDevHr: 18.56,
-        BefDevCst: 256.36,
-        AftDevCst: 120.00
-      },
-      {
-        QuestionId: 6,
-        Question: 'tttttttttttttttttttttttttttttttttt',
-        BefDevHr: 20,
-        AftDevHr: 30,
-        BefDevCst: 56.36,
-        AftDevCst: 20.00
-      },
-      {
-        QuestionId: 7,
-        Question: 'iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii',
-        BefDevHr: 42.58,
-        AftDevHr: 22.23,
-        BefDevCst: 52.12,
-        AftDevCst: 95.63
-      },
-      {
-        QuestionId: 8,
-        Question: 'yyyyyyyyyyyyyyyyyyyyyyyy',
-        BefDevHr: 52,
-        AftDevHr: 42.63,
-        BefDevCst: 55,
-        AftDevCst: 20.00
-      },
-      {
-        QuestionId: 9,
-        Question: 'hhhhhhhhhhhhhhhhhhhhhh',
-        BefDevHr: 24.63,
-        AftDevHr: 10.23,
-        BefDevCst: 55.23,
-        AftDevCst: 45.20
-      },
-      {
-        QuestionId: 10,
-        Question: 'ffffffffffffffffffffffffffffffff',
-        BefDevHr: 23.96,
-        AftDevHr: 18.56,
-        BefDevCst: 256.36,
-        AftDevCst: 120.00
-      }
-    ];
+  constructor(private _pagerservice: PagerServiceService, private metricscalc: MetricsCalculatorService, private _router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.allItems = this.speedtomarket;
-    this.setPage(1);
-    this.metricscalc.getMetrics().subscribe(
-      (data:any)=>{console.log(data)},
-      (error: any)=>{console.log(error)}
-    )
+    this.projectUUID = this.route.snapshot.paramMap.get('uuid');
+    console.log("Calc component: " + this.projectUUID);
+    this.metricscalc.getMetricValues(this.projectUUID).subscribe(
+      data => {
+        this.metricvalues = data;
+        console.log(data);
+      },
+      err => console.log(err),
+      () => {
+        this.filterMetrics('SpeedToMarket');
+        this.speedtomarket = this.metricvalues.filter(x => x.CategoryName == 'SpeedToMarket');
+        this.cost = this.metricvalues.filter(x => x.CategoryName == 'Cost');
+        this.quality = this.metricvalues.filter(x => x.CategoryName == 'Quality');
+        this.changerate = this.metricvalues.filter(x => x.CategoryName == 'ChangeRate');
+      }
+    );
+  }
+
+  filterMetrics(category){
+    this.allItems = this.metricvalues.filter(x => x.CategoryName == category);
+        this.setPage(1);
   }
 
   setPage(page: number) {
     this.pager = this._pagerservice.getPager(this.allItems.length, page);
-    this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    this.firstindex = this.pager.startIndex;
+    this.lastindex = this.pager.endIndex + 1;
+    //this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
+
   submit() {
-    console.log(this.speedtomarket);
+    if(this.CurrentCategoryNo == 1){
+      this.speedtomarket = this.allItems;
+    }
+    else if(this.CurrentCategoryNo == 2){
+      this.cost = this.allItems;
+    }
+    else if(this.CurrentCategoryNo == 3){
+      this.quality = this.allItems;
+    }
+    else{
+      this.changerate = this.allItems;
+    }
+
+    for(var i = 0; i < this.cost.length; i++){
+    this.speedtomarket.push(this.cost[i]);
+    }
+    for(var i = 0; i < this.quality.length; i++){
+      this.speedtomarket.push(this.quality[i]);
+    }
+    for(var i = 0; i < this.changerate.length; i++){
+      this.speedtomarket.push(this.changerate[i]);
+    }
+    this.modifiedvalues = this.speedtomarket;
+    this.metricscalc.updateMetricValues(this.modifiedvalues, this.projectUUID).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      },
+      () =>{
+        this.gotoHome();
+      }
+    );
   }
-  gotoHome(){
-    var result = confirm("Are you sure to navaigate to Home page?");
-    if(result == true)
-    this._router.navigateByUrl('');
+
+  gotoHome() {
+    var result = confirm("You are going to submit the calculation?");
+    if (result == true)
+      this._router.navigateByUrl('');
+  }
+
+  previousCategory(){
+    if(this.CurrentCategoryNo == 4){
+      this.CurrentCategoryNo = this.CurrentCategoryNo - 1;
+      this.changerate = this.allItems;
+      this.CurrentCategory = 'Quality';
+      this.filterMetrics('Quality');
+    }
+    else if(this.CurrentCategoryNo == 3){
+      this.CurrentCategoryNo = this.CurrentCategoryNo - 1;
+      this.quality = this.allItems;
+      this.CurrentCategory = 'Cost';
+      this.filterMetrics('Cost');
+    }
+    else if(this.CurrentCategoryNo == 2){
+      this.CurrentCategoryNo = this.CurrentCategoryNo - 1;
+      this.cost = this.allItems;
+      this.CurrentCategory = 'Speed To Market';
+      this.filterMetrics('SpeedToMarket');
+    }
+  }
+
+  nextCategory(){
+    if(this.CurrentCategoryNo == 1){
+      this.CurrentCategoryNo = this.CurrentCategoryNo + 1;
+      this.speedtomarket = this.allItems;
+      this.CurrentCategory = 'Cost';
+      this.filterMetrics('Cost');
+    }
+    else if(this.CurrentCategoryNo == 2){
+      this.CurrentCategoryNo = this.CurrentCategoryNo + 1;
+      this.cost = this.allItems;
+      this.CurrentCategory = 'Quality';
+      this.filterMetrics('Quality');
+    }
+    else if(this.CurrentCategoryNo == 3){
+      this.CurrentCategoryNo = this.CurrentCategoryNo + 1;
+      this.quality = this.allItems;
+      this.CurrentCategory = 'Change Rate';
+      this.filterMetrics('ChangeRate');
+    }
   }
 
 }
