@@ -95,14 +95,48 @@ export class CalculatorComponent implements OnInit {
         console.log(err);
       },
       () =>{
-        this.gotoHome();
+        this.gotoHomeaftersubmit();
       }
     );
   }
 
+  greyout(i,j){
+    i.BeforeDevOpsHrs = 0.00;
+    i.BeforeDevOpsCost = 0.00;
+    i.AfterDevOpsHrs = 0.00;
+    i.AfterDevOpsCost = 0.00;
+   
+    var lock = document.getElementById(5+"inputId"+j) as HTMLInputElement;
+    if(lock.readOnly == true)
+    {
+      for(var k=1;k<=8;k++){
+        console.log(k+"inputId"+j);
+        var read = document.getElementById(k+"inputId"+j) as HTMLInputElement;
+        read.readOnly = false;
+        document.getElementById(k+"inputId"+j).setAttribute("style","background-color:none");
+      }
+      document.getElementById("9inputId"+j).setAttribute("src","assets/images/dnd.png");
+    }
+    else
+    {
+    for(var k=1;k<=8;k++){
+      console.log(k+"inputId"+j);
+      var read = document.getElementById(k+"inputId"+j) as HTMLInputElement;
+      read.readOnly = true;
+      document.getElementById(k+"inputId"+j).setAttribute("style","background-color:#dae2e8");
+    }
+    document.getElementById("9inputId"+j).setAttribute("src","assets/images/green.svg");
+   }
+  }
+
   gotoHome() {
-    var result = confirm("You are going to submit the calculation?");
+    var result = confirm("you are about to leave the calculation without submitting");
     if (result == true)
+      this._router.navigateByUrl('');
+  }
+
+  gotoHomeaftersubmit() {
+     alert("Your Calculation is submitted successfully.");
       this._router.navigateByUrl('');
   }
 

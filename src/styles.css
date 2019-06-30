@@ -1,6 +1,9 @@
 html {
     scroll-behavior: smooth;
   }
+  textarea:focus, input:focus{
+    outline: none;
+}
   input{
       border:0;
       text-align: center;
@@ -148,6 +151,9 @@ a{
     padding-bottom: 5px;
     font-size: 12px;
     font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .tile-img{
     height: 60px;

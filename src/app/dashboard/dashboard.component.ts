@@ -46,6 +46,10 @@ export class DashboardComponent implements OnInit {
     this._router.navigateByUrl('/calculator/'+this.uuid);
   }
 
+  editcalculations(i){
+    this._router.navigateByUrl('/calculator/'+i.ProjectGUID);
+  }
+
   onClickSubmit(data) {
     this.projectdata = [{
       projectname : data.projectname,
