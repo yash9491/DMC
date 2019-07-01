@@ -235,7 +235,6 @@ a{
     padding: 10px 10px 10px 10px;
     font-family: Verdana,sans-serif;
     font-weight:bolder;
-    border-bottom: 1px dotted black;
     display: flex;
 }
 .grid-data-head{

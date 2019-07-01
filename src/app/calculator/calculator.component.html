@@ -1,159 +1,164 @@
 <div class="container-fluid">
-        <div class="row menu-bar">
-            <div class="col-md-2 col-lg-2 logo">
-                <span>DevOps - MC</span>
-            </div>
-            <div class="col-lg-4 offset-lg-6">
-                <div class="row menu-bar-left">
-                    <div class="col-lg-3 menu-options">
-                            <span><a class="about-button" (click)="gotoHome()">Home</a></span>
-                    </div>
-                    <div class="col-lg-3 menu-options">
-                        <span>About</span>
-                    </div>
-                    <div class="col-lg-6 menu-options">
-                        <span>d.yaswanth.chandra</span>
-                    </div>
+    <div class="row menu-bar">
+        <div class="col-md-2 col-lg-2 logo">
+            <span>DevOps - MC</span>
+        </div>
+        <div class="col-lg-4 offset-lg-6">
+            <div class="row menu-bar-left">
+                <div class="col-lg-3 menu-options">
+                    <span><a class="about-button" (click)="gotoHome()">Home</a></span>
+                </div>
+                <div class="col-lg-3 menu-options">
+                    <span>About</span>
+                </div>
+                <div class="col-lg-6 menu-options">
+                    <span>d.yaswanth.chandra</span>
                 </div>
             </div>
         </div>
-        <div class="row categories-calc">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="row">
-                    <div class="col-lg-3 cal-main">
-                        <input type="image" class="cal-main-logo" src="assets/images/speedtomarket.png" alt="image"><br>
-                        <span>Speed To Market</span>
-                    </div>
-                    <div class="col-lg-3 cal-main">
-                        <input type="image" class="cal-main-logo" src="assets/images/cost.png" alt="image"><br>
-                        <span>Cost</span>
-                    </div>
-                    <div class="col-lg-3 cal-main">
-                        <input type="image" class="cal-main-logo" src="assets/images/quality.png" alt="image"><br>
-                        <span>Quality</span>
-                    </div>
-                    <div class="col-lg-3 cal-main">
-                        <input type="image" class="cal-main-logo" src="assets/images/changerate.png" alt="image"><br>
-                        <span>Change Rate</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 table-ribbon">
-                <span class="current-category-label">Current Category: {{CurrentCategory}}</span>
-            </div>
-        </div>
-        <div class="row main-table">
-            <div class="col-lg-10 offset-lg-1 grid-table">
-                <div class="row">
-                    <div class="col-lg-4">
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col grid-data-head">
-                                <span id="block">Before DevOps</span>
-                            </div>
-                            <div class="col grid-data-head">
-                                &nbsp;&nbsp;<span id="block">After DevOps</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 grid-data-head">
-                        <span>Metric</span>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="row">
-                            <div class="col grid-data-head">
-                                <span id="block">Hours</span>
-                                <input type="image" class="dnd-logo" src="assets/images/hours.png" alt="image">
-                            </div>
-                            <div class="col grid-data-head">
-                                <span id="block">Cost</span>
-                                <input type="image" class="dnd-logo" src="assets/images/costs.png" alt="image">
-                            </div>
-                            <div class="col grid-data-head">
-                                <span id="block">Hours</span>
-                                <input type="image" class="dnd-logo" src="assets/images/hours.png" alt="image">
-                            </div>
-                            <div class="col grid-data-head">
-                                <span id="block">Cost</span>
-                                <input type="image" class="dnd-logo" src="assets/images/costs.png" alt="image">
-                            </div>
-                            <div class="col grid-data-head">
-                                <span id="block">Actions</span>
-                                <input type="image" class="dnd-logo" src="assets/images/actions.png" alt="image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" *ngFor="let i of allItems | slice: firstindex : lastindex; let j = index">
-                    <div class="col-lg-4 grid-data-mem">
-                        <span>{{i.Metric}}</span>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="row">
-                    
-                            <div class="col grid-data-mem" id="{{'1inputId'+j}}">
-                                <input type="text" id="{{'5inputId'+j}}" [value]="i.BeforeDevOpsHrs" (input)="i.BeforeDevOpsHrs=$event.target.value">
-                            </div>
-                            <div class="col grid-data-mem" id="{{'2inputId'+j}}">
-                                <input type="text" id="{{'6inputId'+j}}" [value]="i.BeforeDevOpsCost" (input)="i.BeforeDevOpsCost=$event.target.value">
-                            </div>
-                            <div class="col grid-data-mem" id="{{'3inputId'+j}}">
-                                <input type="text" id="{{'7inputId'+j}}" [value]="i.AfterDevOpsHrs" (input)="i.AfterDevOpsHrs=$event.target.value">
-                            </div>
-                            <div class="col grid-data-mem" id="{{'4inputId'+j}}">
-                                <input type="text" id="{{'8inputId'+j}}" [value]="i.AfterDevOpsCost" (input)="i.AfterDevOpsCost=$event.target.value">
-                            </div>
-                            <div class="col grid-data-mem">
-                                <input type="image" id="{{'9inputId'+j}}" (click)="greyout(i,j)" class="dnd-logo-1" src="assets/images/dnd.png" alt="image">
-                            </div>
-                        
-                        </div>
-                    </div>
-                </div>
-                <div class="row pagination">
-                    <div class="col-lg-2" *ngIf="CurrentCategoryNo != 1">
-                        <span><button class="getstarted prev-cat" (click)="previousCategory()">Prev Category</button></span>
-                    </div>
-                    <div class="col-lg-2" *ngIf="CurrentCategoryNo == 1"></div>
-                    <div class="col-lg-8">
-                        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                            <li [ngClass]="{disabled:pager.currentPage === 1}">
-                                <a (click)="setPage(1)"><span>First</span></a>
-                            </li>
-                            <li [ngClass]="{disabled:pager.currentPage === 1}">
-                                <a (click)="setPage(pager.currentPage - 1)"><span>Previous</span></a>
-                            </li>
-                            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                                <a (click)="setPage(page)"><span>{{page}}</span></a>
-                            </li>
-                            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                                <a (click)="setPage(pager.currentPage + 1)"><span>Next</span></a>
-                            </li>
-                            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                                <a (click)="setPage(pager.totalPages)"><span>Last</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2" *ngIf="CurrentCategoryNo != 4">
-                        <span><button class="getstarted next-cat" (click)="nextCategory()">Next Category</button></span>
-                    </div>
-                    <div class="col-lg-2" *ngIf="CurrentCategoryNo == 4"></div>
-                </div>
-                <div class="row submit">
-                    <div class="col">
-                            <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-      <div class="footer">
-        <p>Footer</p>
-      </div>
     </div>
+    <div class="row categories-calc">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="row">
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/speedtomarket.png" alt="image"><br>
+                    <span>Speed To Market</span>
+                </div>
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/cost.png" alt="image"><br>
+                    <span>Cost</span>
+                </div>
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/quality.png" alt="image"><br>
+                    <span>Quality</span>
+                </div>
+                <div class="col-lg-3 cal-main">
+                    <input type="image" class="cal-main-logo" src="assets/images/changerate.png" alt="image"><br>
+                    <span>Change Rate</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 table-ribbon">
+            <span class="current-category-label">Current Category: {{CurrentCategory}}</span>
+        </div>
+    </div>
+    <div class="row main-table">
+        <div class="col-lg-10 offset-lg-1 grid-table">
+            <div class="row">
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col grid-data-head">
+                            <span id="block">Before DevOps</span>
+                        </div>
+                        <div class="col grid-data-head">
+                            &nbsp;&nbsp;<span id="block">After DevOps</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 grid-data-head">
+                    <span>Metric</span>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col grid-data-head">
+                            <span id="block">Hours</span>
+                            <input type="image" class="dnd-logo" src="assets/images/hours.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Cost</span>
+                            <input type="image" class="dnd-logo" src="assets/images/costs.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Hours</span>
+                            <input type="image" class="dnd-logo" src="assets/images/hours.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Cost</span>
+                            <input type="image" class="dnd-logo" src="assets/images/costs.png" alt="image">
+                        </div>
+                        <div class="col grid-data-head">
+                            <span id="block">Actions</span>
+                            <input type="image" class="dnd-logo" src="assets/images/actions.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom: 1px dotted black" *ngFor="let i of allItems | slice: firstindex : lastindex; let j = index">
+                <div class="col-lg-4 grid-data-mem">
+                    <span>{{i.Metric}}</span>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+
+                        <div class="col grid-data-mem" id="{{'1inputId'+j}}">
+                            <input type="text" id="{{'5inputId'+j}}" [value]="i.BeforeDevOpsHrs"
+                                (input)="i.BeforeDevOpsHrs=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem" id="{{'2inputId'+j}}">
+                            <input type="text" id="{{'6inputId'+j}}" [value]="i.BeforeDevOpsCost"
+                                (input)="i.BeforeDevOpsCost=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem" id="{{'3inputId'+j}}">
+                            <input type="text" id="{{'7inputId'+j}}" [value]="i.AfterDevOpsHrs"
+                                (input)="i.AfterDevOpsHrs=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem" id="{{'4inputId'+j}}">
+                            <input type="text" id="{{'8inputId'+j}}" [value]="i.AfterDevOpsCost"
+                                (input)="i.AfterDevOpsCost=$event.target.value">
+                        </div>
+                        <div class="col grid-data-mem">
+                            <input type="image" id="{{'9inputId'+j}}" (click)="greyout(i,j)" class="dnd-logo-1"
+                                src="assets/images/dnd.png" alt="image">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row pagination">
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo != 1">
+                    <span><button class="getstarted prev-cat" (click)="previousCategory()">Prev Category</button></span>
+                </div>
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo == 1"></div>
+                <div class="col-lg-8">
+                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(1)"><span>First</span></a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(pager.currentPage - 1)"><span>Previous</span></a>
+                        </li>
+                        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                            <a (click)="setPage(page)"><span>{{page}}</span></a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.currentPage + 1)"><span>Next</span></a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.totalPages)"><span>Last</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo != 4">
+                    <span><button class="getstarted next-cat" (click)="nextCategory()">Next Category</button></span>
+                </div>
+                <div class="col-lg-2" *ngIf="CurrentCategoryNo == 4"></div>
+            </div>
+            <div class="row submit">
+                <div class="col">
+                    <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Footer</p>
+    </div>
+</div>
