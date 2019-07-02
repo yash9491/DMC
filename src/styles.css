@@ -13,6 +13,12 @@ html {
   .main{
       background-color: #ebeef4;
   }
+  #About{
+    position: relative;
+    width: 100%;
+    top: 260px;
+    text-align: center;
+  }
   .about-button{
       cursor: pointer;
       color: black;
@@ -100,18 +106,19 @@ a{
     text-align: center;
     margin-top: 25px;
 }
-.dashboard-about-tile{
+#dashboard-about-tile{
     border-top: 1px dotted black;
     text-align: center;
     position: relative;
     top: 270px;
     height:auto;
+    width:100%
 }
-.dashboard-about-tile-right{
+#dashboard-about-tile-right{
     text-align:center;
     float:center;
 }
-.dashboard-about-tile-left{
+#dashboard-about-tile-left{
     margin-top:5px;
     text-align:center;
     border-right: 1px dotted black;
