@@ -41,6 +41,14 @@ export class DashboardComponent implements OnInit {
       worklocation: new FormControl("")
    });
   }
+
+  carouselprev(){
+    console.log("Prev");
+  }
+
+  carouselnext(){
+    console.log("Next");
+  }
   
   navigatetocalc(){
     this._router.navigateByUrl('/calculator/'+this.uuid);

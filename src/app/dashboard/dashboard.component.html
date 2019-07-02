@@ -24,85 +24,119 @@
     <div class="col-lg-6 content">
       <span class="main-heading">DevOps Metrics Calculator</span><br>
       <span class="sub-heading">A Calculator that Never Settle</span><br><br><br>
-      <span><button type="button" class="getstarted" data-toggle="modal" data-target="#myModal">Click here to get
-          started</button></span>
+      <span><a style="text-decoration: underline" data-toggle="modal" data-target="#myModal">Click here to get
+          started</a></span>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-10 offset-lg-1 mycalculations">
+    <div class="col-lg-10 offset-lg-1" id="mycalculations">
       <div class="mycalc-logo"><span>Calculations you made</span><br></div>
       <div class="row">
-          <div class="col-xs-12 fs-carousel-wrapper">
-              <div id="cci-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                  <!-- Left and right controls -->
-                  <a class="left carousel-control control-disable" href="#cci-carousel" data-slide="prev">
-                      <img style="height: 25px;
-                      width: 25px;"src="assets/images/delete.png">
-                  </a>
-                  <a class="right carousel-control control-disable" href="#cci-carousel" data-slide="next" >
-                      <img style="height: 25px;
-                      width: 25px;"src="assets/images/delete.png">
-                  </a>
-                  <div class="carousel-inner">
-                      <div class="item active">         
-                          <h1>Hiii</h1> 
-                      </div>
-                      <div class="item">
-                        <h1>Hiii 2</h1>
-                      </div>
+        <div id="carouselExampleIndicators" class="col-lg-12 carousel slide" data-ride="carousel" data-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="text-align:center; height:300px;">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="calculations-tile" [style.height]="height"
+                *ngFor="let mycalc of mycalculations | slice:0:3">
+                <div class="row">
+                  <div class="col-lg-12 mycalc-header">
+                  </div>
+                </div>
+                <div class="mycalc-content">
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Project Name:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.ProjectName}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Client Name:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.ClientName}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Cost Saved:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalCostSaved | number : '1.2-2'}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Hours Saved:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalHoursSaved | number : '1.2-2'}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Resources Saved:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalResourcesSaved | number : '1.2-2'}}</div>
+                  </div>
+                </div>
+                <footer id="footer" class="mycalc-tiles-footer">
+                  <div class="row" style="padding-top:5px">
+                    <div class="col-lg-2 offset-lg-2">
+                      <img type="button" data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
+                        src="assets/images/quality.png" alt="image">
                     </div>
-              </div>
-          </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 calculations-tile" [style.height]="height"
-          *ngFor="let mycalc of mycalculations">
-          <div class="row">
-              
-
-
-            <div class="col-lg-12 mycalc-header">
-                
-            </div>
-          </div>
-          <div class="mycalc-content">
-            <div class="row">
-            <div class="col-lg-6 offset-lg-1 mycalc-content-left">Project Name:</div>
-            <div class="col-lg-5 mycalc-content-right">{{mycalc.ProjectName}}</div>
-          </div>
-          <div class="row">
-              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Client Name:</div>
-              <div class="col-lg-5 mycalc-content-right">{{mycalc.ClientName}}</div>
-          </div>
-          <div class="row">
-              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Industry Group:</div>
-              <div class="col-lg-5 mycalc-content-right">{{mycalc.IndustryGroup}}</div>
-          </div>
-          <div class="row">
-              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Work Location:</div>
-              <div class="col-lg-5 mycalc-content-right">{{mycalc.WorkLocation}}</div>
-          </div>
-          <div class="row">
-              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Cost Saved:</div>
-              <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalCostSaved | number : '1.2-2'}}</div>
-          </div>
-          <div class="row">
-              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Hours Saved:</div>
-              <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalHoursSaved | number : '1.2-2'}}</div>
-          </div>
-          <div class="row">
-              <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Resources Saved:</div>
-              <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalResourcesSaved | number : '1.2-2'}}</div>
-          </div>
-          </div>
-          <footer id="footer" class="mycalc-tiles-footer">
-            <div class="row">
-              <div class="col-lg-3 offset-lg-3">
-                <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)" src="assets/images/edit.png" alt="image">
-              </div>
-              <div class="col-lg-3 offset-lg-1">
-                <img class="mycalc-tiles-img" src="assets/images/delete.png" alt="image">
+                    <div class="col-lg-2 offset-lg-1">
+                      <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)"
+                        src="assets/images/edit.png" alt="image">
+                    </div>
+                    <div class="col-lg-2 offset-lg-1">
+                      <img class="mycalc-tiles-img" src="assets/images/delete.png" alt="image">
+                    </div>
+                  </div>
+                </footer>
               </div>
             </div>
-          </footer>
+            <div class="carousel-item" style="text-align:center; height:300px;">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="calculations-tile" [style.height]="height"
+                *ngFor="let mycalc of mycalculations | slice:3:6">
+                <div class="row">
+                  <div class="col-lg-12 mycalc-header">
+                  </div>
+                </div>
+                <div class="mycalc-content">
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Project Name:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.ProjectName}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Client Name:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.ClientName}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Cost Saved:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalCostSaved | number : '1.2-2'}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Hours Saved:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalHoursSaved | number : '1.2-2'}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 offset-lg-1 mycalc-content-left">Total Resources Saved:</div>
+                    <div class="col-lg-5 mycalc-content-right">{{mycalc.TotalResourcesSaved | number : '1.2-2'}}</div>
+                  </div>
+                </div>
+                <footer id="footer" class="mycalc-tiles-footer">
+                  <div class="row" style="padding-top:5px">
+                    <div class="col-lg-2 offset-lg-2">
+                      <img type="button" data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
+                        src="assets/images/quality.png" alt="image">
+                    </div>
+                    <div class="col-lg-2 offset-lg-1">
+                      <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)"
+                        src="assets/images/edit.png" alt="image">
+                    </div>
+                    <div class="col-lg-2 offset-lg-1">
+                      <img class="mycalc-tiles-img" src="assets/images/delete.png" alt="image">
+                    </div>
+                  </div>
+                </footer>
+                  </div>
+                  
+          </div>
+          <a class="carousel-control-prev" (click)="carouselprev()" style="width:50px;" data-target="#carouselExampleIndicators" role="button"
+            data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" (click)="carouselnext()" style="width:50px;" data-target="#carouselExampleIndicators" role="button"
+            data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
     </div>

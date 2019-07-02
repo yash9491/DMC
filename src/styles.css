@@ -61,7 +61,6 @@ html {
 .devops-main-logo{
     height:180px;
     width: 400px;  
-    margin-top:-120px;
 }
 .green-ribbon .content{
     color: white;
@@ -167,12 +166,12 @@ a{
     font-size: 23px;
     font-weight: bold;
 }
-.calculations-tile{
-    height: 280px;
+#calculations-tile{
+    height: 250px;
     position: relative;
     top: 30px;
     border: 1px solid #008a00;
-    margin-left: 60px;
+    margin-left: 68px;
 }
 .small-border-left{
     width:100px;
@@ -199,7 +198,7 @@ a{
     font:normal normal normal 15px/1.4em raleway,sans-serif;
     color: #000000;
 }
-.table-ribbon{
+#table-ribbon{
     height: 40px;
     border: 1px solig green;
     background-image: linear-gradient(to right,#23f707,#008a00);
@@ -350,7 +349,7 @@ a:hover{
 .tile-right{
     margin-top:25px;
 }
-.mycalculations{
+#mycalculations{
     top:250px;
     height: 360px;
     border: 1px solid #008a00;
@@ -360,6 +359,9 @@ a:hover{
     z-index: 10;
     background-color: white;
     box-shadow: 1px 1px 1px 1px #008a00;
+}
+.carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
 }
 .mycalculations-none{
     padding-top:125px;
