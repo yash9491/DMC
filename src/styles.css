@@ -417,7 +417,7 @@ a:hover{
 .btn-primary{
     font-weight:600;
 }
-.footer {
+/* .footer {
     position:relative;
     left: 0;
     bottom: 0;
@@ -425,4 +425,4 @@ a:hover{
     border-top: 1px dotted black;
     background-color: white;
     text-align: center;
-}
+} */
