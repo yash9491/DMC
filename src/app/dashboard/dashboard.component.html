@@ -24,8 +24,7 @@
     <div class="col-lg-6 content">
       <span class="main-heading">DevOps Metrics Calculator</span><br>
       <span class="sub-heading">A Calculator that Never Settle</span><br><br><br>
-      <span><a style="text-decoration: underline" data-toggle="modal" data-target="#myModal">Click here to get
-          started</a></span>
+      <span><a style="text-decoration: underline; font-weight:bold" data-toggle="modal" data-target="#myModal">Click here for new calculation</a></span>
     </div>
   </div>
   <div class="row">
@@ -66,8 +65,8 @@
                 <footer id="footer" class="mycalc-tiles-footer">
                   <div class="row" style="padding-top:5px">
                     <div class="col-lg-2 offset-lg-2">
-                      <img type="button" data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
-                        src="assets/images/quality.png" alt="image">
+                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
+                        style="cursor:pointer" src="assets/images/quality.png" alt="image">
                     </div>
                     <div class="col-lg-2 offset-lg-1">
                       <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)"
@@ -81,7 +80,7 @@
               </div>
             </div>
             <div class="carousel-item" style="text-align:center; height:300px;">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="calculations-tile" [style.height]="height"
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="calculations-tile" [style.height]="height"
                 *ngFor="let mycalc of mycalculations | slice:3:6">
                 <div class="row">
                   <div class="col-lg-12 mycalc-header">
@@ -112,8 +111,8 @@
                 <footer id="footer" class="mycalc-tiles-footer">
                   <div class="row" style="padding-top:5px">
                     <div class="col-lg-2 offset-lg-2">
-                      <img type="button" data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
-                        src="assets/images/quality.png" alt="image">
+                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
+                      style="cursor:pointer" src="assets/images/quality.png" alt="image">
                     </div>
                     <div class="col-lg-2 offset-lg-1">
                       <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)"
@@ -124,149 +123,157 @@
                     </div>
                   </div>
                 </footer>
-                  </div>
-                  
-          </div>
-          <a class="carousel-control-prev" (click)="carouselprev()" style="width:50px;" data-target="#carouselExampleIndicators" role="button"
-            data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" (click)="carouselnext()" style="width:50px;" data-target="#carouselExampleIndicators" role="button"
-            data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- (click)="navigatetocalc()" -->
-  <div class="row" id="About">
-    <div class="col-lg-12">
-      <span class="about-logo">About</span><br>
-    </div>
-  </div>
+              </div>
 
-  <div class="row" id="dashboard-about-tile">
-
-    <div class="col-lg-6" id="dashboard-about-tile-left">
-      <div class="tile-left">
-        <img class="dasboard-logo" src="assets/images/gears.png" alt="image"><br>
-        <div class="dashboard-about-content-right">
-          <span>Metrics Calculator</span>
-          <div class="dashboard-about-content-1">
-            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
-              the
-              Devops</span>
-          </div>
-        </div>
-      </div>
-      <div class="tile-left">
-        <img class="dasboard-logo" src="assets/images/cost.png" alt="image">
-        <div class="dashboard-about-content-right">
-          <span>Cost</span>
-          <div class="dashboard-about-content-1">
-            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
-              the
-              Devops</span>
-          </div>
-        </div>
-      </div>
-      <div class="tile-left">
-        <img class="dasboard-logo" src="assets/images/changerate.png" alt="image">
-        <div class="dashboard-about-content-right">
-          <span>Change Rate</span>
-          <div class="dashboard-about-content-1">
-            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
-              the
-              Devops</span>
+            </div>
+            <a class="carousel-control-prev" (click)="carouselprev()" style="width:50px;"
+              data-target="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" (click)="carouselnext()" style="width:50px;"
+              data-target="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
+    <!-- (click)="navigatetocalc()" -->
+    <div class="row" id="About">
+      <div class="col-lg-12">
+        <span class="about-logo">About</span><br>
+      </div>
+    </div>
 
-    <div class="col-lg-6" id="dashboard-about-tile-right">
-      <div class="tile-right">
-        <img class="dasboard-logo" src="assets/images/speedtomarket.png" alt="image">
-        <div class="dashboard-about-content-left">
-          <span>Speed To Market</span><br>
-          <div class="dashboard-about-content-1">
-            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
-              the
-              Devops</span>
+    <div class="row" id="dashboard-about-tile">
+
+      <div class="col-lg-6" id="dashboard-about-tile-left">
+        <div class="tile-left">
+          <img class="dasboard-logo" src="assets/images/gears.png" alt="image"><br>
+          <div class="dashboard-about-content-right">
+            <span>Metrics Calculator</span>
+            <div class="dashboard-about-content-1">
+              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+                the
+                Devops</span>
+            </div>
+          </div>
+        </div>
+        <div class="tile-left">
+          <img class="dasboard-logo" src="assets/images/cost.png" alt="image">
+          <div class="dashboard-about-content-right">
+            <span>Cost</span>
+            <div class="dashboard-about-content-1">
+              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+                the
+                Devops</span>
+            </div>
+          </div>
+        </div>
+        <div class="tile-left">
+          <img class="dasboard-logo" src="assets/images/changerate.png" alt="image">
+          <div class="dashboard-about-content-right">
+            <span>Change Rate</span>
+            <div class="dashboard-about-content-1">
+              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+                the
+                Devops</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="tile-right">
-        <img class="dasboard-logo" src="assets/images/quality.png" alt="image">
-        <div class="dashboard-about-content-left">
-          <span>Quality</span><br>
-          <div class="dashboard-about-content-1">
-            <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
-              the
-              Devops</span>
+
+      <div class="col-lg-6" id="dashboard-about-tile-right">
+        <div class="tile-right">
+          <img class="dasboard-logo" src="assets/images/speedtomarket.png" alt="image">
+          <div class="dashboard-about-content-left">
+            <span>Speed To Market</span><br>
+            <div class="dashboard-about-content-1">
+              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+                the
+                Devops</span>
+            </div>
+          </div>
+        </div>
+        <div class="tile-right">
+          <img class="dasboard-logo" src="assets/images/quality.png" alt="image">
+          <div class="dashboard-about-content-left">
+            <span>Quality</span><br>
+            <div class="dashboard-about-content-1">
+              <span>A Calculator that compares the hours and cost those were <br>observed before and after implementing
+                the
+                Devops</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div clas="row">
-      <div class="col-lg-4 offset-lg-4">
+      <div clas="row">
+        <div class="col-lg-4 offset-lg-4">
 
+        </div>
       </div>
+      <hr>
     </div>
-    <hr>
-  </div>
 
-  <!-- <div class="footer">
+    <!-- <div class="footer">
     <p>Footer</p>
   </div> -->
 
-</div>
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-md">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Project Details</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div>
-        <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
-          <div class="row popup">
-            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Project Name:</span></div>
-          </div>
-          <div class="row popup">
-            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="projectname"
-                placeholder="Project Name"><br></div>
-          </div>
-          <div class="row popup">
-            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Client Name:</span></div>
-          </div>
-          <div class="row popup">
-            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="clientname"
-                placeholder="Client Name"><br></div>
-          </div>
-          <div class="row popup">
-            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Industry Group:</span></div>
-          </div>
-          <div class="row popup">
-            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="industrygroup"
-                placeholder="Industry Group"><br></div>
-          </div>
-          <div class="row popup">
-            <div class="col-lg-6 offset-lg-2"><span class="popup-text">Work Location:</span></div>
-          </div>
-          <div class="row popup">
-            <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="worklocation"
-                placeholder="Work Location"><br></div>
-          </div>
-          <div class="modal-footer">
-            <span><button type="submit" class="getstarted" value="Submit">Submit</button></span>
-            <button type="button" class="getstarted" id="close-modal" data-dismiss="modal">Close</button>
-          </div>
-        </form>
+  </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Project Details</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div>
+          <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+            <div class="row popup">
+              <div class="col-lg-6 offset-lg-2"><span class="popup-text">Project Name:</span></div>
+            </div>
+            <div class="row popup">
+              <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="projectname"
+               placeholder="Project Name"><br></div>
+                <div class="col-lg-7 offset-lg-2" style="color:red; height:10px" *ngIf="submitted && f.projectname.errors">
+            <p class="popup-text" >*Project Name is required</p></div>
+            </div>
+            <div class="row popup">
+              <div class="col-lg-6 offset-lg-2"><span class="popup-text">Client Name:</span></div>
+            </div>
+            <div class="row popup">
+              <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="clientname"
+                  placeholder="Client Name"><br></div>
+                  <div class="col-lg-7 offset-lg-2" style="color:red; height:10px" *ngIf="submitted && f.clientname.errors">
+                      <p class="popup-text">*Client Name is required</p></div>
+            </div>
+            <div class="row popup">
+              <div class="col-lg-6 offset-lg-2"><span class="popup-text">Industry Group:</span></div>
+            </div>
+            <div class="row popup">
+              <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="industrygroup"
+                  placeholder="Industry Group"><br></div>
+                  <div class="col-lg-7 offset-lg-2"style="color:red; height:10px" *ngIf="submitted && f.industrygroup.errors">
+                      <p class="popup-text">*Industry Group is required</p></div>
+            </div>
+            <div class="row popup">
+              <div class="col-lg-6 offset-lg-2"><span class="popup-text">Work Location:</span></div>
+            </div>
+            <div class="row popup">
+              <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="worklocation"
+                  placeholder="Work Location"><br></div>
+                  <div class="col-lg-7 offset-lg-2" style="color:red; height:10px" *ngIf="submitted && f.worklocation.errors">
+                      <p class="popup-text">*Work Location is required</p></div>
+            </div>
+            <div class="modal-footer">
+              <span><button type="submit" class="getstarted" value="Submit">Submit</button></span>
+              <button type="button" class="getstarted" id="close-modal" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>

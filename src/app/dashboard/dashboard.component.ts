@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder,Validators, AbstractControl } from '@angular/forms';
 import { ProjectData } from '../projectdata';
 import {MetricsCalculatorService} from '../metrics-calculator.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,39 +12,47 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class DashboardComponent implements OnInit {
-  projectname;
-  clientname;
-  industrygroup;
-  worklocation;
-  formdata;
+  projectname: AbstractControl;
+  projectnamepattern   = "^[a-z0-9_-]{8,15}$";
+  clientname: AbstractControl;
+  industrygroup: AbstractControl;
+  worklocation: AbstractControl;
+  formdata : FormGroup;
   uuid;
+  submitted:boolean = false;
   mycalculations : any[];
   projectdata : ProjectData[];
   hideModal: boolean = false;
   
-  constructor(private _router:Router, private _metricscal: MetricsCalculatorService) { }
+  constructor(private _formbuilder:FormBuilder,private _router:Router, private _metricscal: MetricsCalculatorService) { }
 
   ngOnInit() {
     this._metricscal.getCalculatedProjects().subscribe(
       data => {
         this.mycalculations = data;
-        console.log(this.mycalculations);
       },
       err => {
         console.log(err);
       }
     );
-    this.formdata = new FormGroup({
-      projectname: new FormControl('', Validators.required),
-      clientname: new FormControl(""),
-      industrygroup : new FormControl(""),
-      worklocation: new FormControl("")
-   });
+    this.formdata = this._formbuilder.group({
+      projectname:['',Validators.required],
+      clientname:['',Validators.required],
+      industrygroup:['',Validators.required],
+      worklocation:['',Validators.required]
+    });
+
+    this.projectname = this.formdata.controls['projectname'];
+    this.clientname = this.formdata.controls['clientname'];
+    this.industrygroup = this.formdata.controls['industrygroup'];
+    this.worklocation = this.formdata.controls['worklocation'];
   }
 
   carouselprev(){
     console.log("Prev");
   }
+
+  get f() { return this.formdata.controls; }
 
   carouselnext(){
     console.log("Next");
@@ -59,6 +67,12 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickSubmit(data) {
+    this.submitted = true;
+    console.log(this.submitted);
+    if (this.formdata.invalid) {
+      return;
+  }
+
     this.projectdata = [{
       projectname : data.projectname,
       clientname : data.clientname,
@@ -69,7 +83,6 @@ export class DashboardComponent implements OnInit {
     this._metricscal.postProjectDetails(this.projectdata).subscribe(
       (data: any)=>{
         this.uuid = data;
-        console.log("Post Data Success"+data)
       },
       (error: any)=>{console.log(error)},
       ()=>{

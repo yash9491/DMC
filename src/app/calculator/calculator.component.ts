@@ -38,7 +38,6 @@ export class CalculatorComponent implements OnInit {
     this.metricscalc.getMetricValues(this.projectUUID).subscribe(
       data => {
         this.metricvalues = data;
-        console.log(data);
       },
       err => console.log(err),
       () => {
@@ -89,7 +88,6 @@ export class CalculatorComponent implements OnInit {
     this.modifiedvalues = this.speedtomarket;
     this.metricscalc.updateMetricValues(this.modifiedvalues, this.projectUUID).subscribe(
       data => {
-        console.log(data);
       },
       err => {
         console.log(err);
@@ -110,7 +108,6 @@ export class CalculatorComponent implements OnInit {
     if(lock.readOnly == true)
     {
       for(var k=1;k<=8;k++){
-        console.log(k+"inputId"+j);
         var read = document.getElementById(k+"inputId"+j) as HTMLInputElement;
         read.readOnly = false;
         document.getElementById(k+"inputId"+j).setAttribute("style","background-color:none");
@@ -120,7 +117,6 @@ export class CalculatorComponent implements OnInit {
     else
     {
     for(var k=1;k<=8;k++){
-      console.log(k+"inputId"+j);
       var read = document.getElementById(k+"inputId"+j) as HTMLInputElement;
       read.readOnly = true;
       document.getElementById(k+"inputId"+j).setAttribute("style","background-color:#dae2e8");
