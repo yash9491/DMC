@@ -19,17 +19,17 @@ export class CalculatorComponent implements OnInit {
   pagedItems: Metrics[];
   name: any = "Devops";
   UUID: any[];
-  firstindex : number;
+  firstindex: number;
   lastindex: number;
-  CurrentCategory : any = 'Speed To Market';
+  CurrentCategory: any = 'Speed To Market';
   CurrentCategoryNo: number = 1;
   speedtomarket: Metrics[];
-  cost:Metrics[];
+  cost: Metrics[];
   quality: Metrics[];
   changerate: Metrics[];
   modifiedvalues: Metrics[];
-  greenimage : any = "assets/images/green.svg";
-  redimage : any = "assets/images/dnd.png";
+  greenimage: any = "assets/images/green.svg";
+  redimage: any = "assets/images/dnd.png";
 
   constructor(private _pagerservice: PagerServiceService, private metricscalc: MetricsCalculatorService, private _router: Router, private route: ActivatedRoute) {
   }
@@ -52,9 +52,9 @@ export class CalculatorComponent implements OnInit {
     );
   }
 
-  filterMetrics(category){
+  filterMetrics(category) {
     this.allItems = this.metricvalues.filter(x => x.CategoryName == category);
-        this.setPage(1);
+    this.setPage(1);
   }
 
   setPage(page: number) {
@@ -65,26 +65,26 @@ export class CalculatorComponent implements OnInit {
   }
 
   submit() {
-    if(this.CurrentCategoryNo == 1){
+    if (this.CurrentCategoryNo == 1) {
       this.speedtomarket = this.allItems;
     }
-    else if(this.CurrentCategoryNo == 2){
+    else if (this.CurrentCategoryNo == 2) {
       this.cost = this.allItems;
     }
-    else if(this.CurrentCategoryNo == 3){
+    else if (this.CurrentCategoryNo == 3) {
       this.quality = this.allItems;
     }
-    else{
+    else {
       this.changerate = this.allItems;
     }
 
-    for(var i = 0; i < this.cost.length; i++){
-    this.speedtomarket.push(this.cost[i]);
+    for (var i = 0; i < this.cost.length; i++) {
+      this.speedtomarket.push(this.cost[i]);
     }
-    for(var i = 0; i < this.quality.length; i++){
+    for (var i = 0; i < this.quality.length; i++) {
       this.speedtomarket.push(this.quality[i]);
     }
-    for(var i = 0; i < this.changerate.length; i++){
+    for (var i = 0; i < this.changerate.length; i++) {
       this.speedtomarket.push(this.changerate[i]);
     }
     this.modifiedvalues = this.speedtomarket;
@@ -94,13 +94,13 @@ export class CalculatorComponent implements OnInit {
       err => {
         console.log(err);
       },
-      () =>{
+      () => {
         this.gotoHomeaftersubmit();
       }
     );
   }
 
-  greyout(i){
+  greyout(i) {
     i.BeforeDevOpsHrs = 0.00;
     i.BeforeDevOpsCost = 0.00;
     i.AfterDevOpsHrs = 0.00;
@@ -115,24 +115,24 @@ export class CalculatorComponent implements OnInit {
   }
 
   gotoHomeaftersubmit() {
-     alert("Your Calculation is submitted successfully.");
-      this._router.navigateByUrl('');
+    alert("Your Calculation is submitted successfully.");
+    this._router.navigateByUrl('');
   }
 
-  previousCategory(){
-    if(this.CurrentCategoryNo == 4){
+  previousCategory() {
+    if (this.CurrentCategoryNo == 4) {
       this.CurrentCategoryNo = this.CurrentCategoryNo - 1;
       this.changerate = this.allItems;
       this.CurrentCategory = 'Quality';
       this.filterMetrics('Quality');
     }
-    else if(this.CurrentCategoryNo == 3){
+    else if (this.CurrentCategoryNo == 3) {
       this.CurrentCategoryNo = this.CurrentCategoryNo - 1;
       this.quality = this.allItems;
       this.CurrentCategory = 'Cost';
       this.filterMetrics('Cost');
     }
-    else if(this.CurrentCategoryNo == 2){
+    else if (this.CurrentCategoryNo == 2) {
       this.CurrentCategoryNo = this.CurrentCategoryNo - 1;
       this.cost = this.allItems;
       this.CurrentCategory = 'Speed To Market';
@@ -140,20 +140,20 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
-  nextCategory(){
-    if(this.CurrentCategoryNo == 1){
+  nextCategory() {
+    if (this.CurrentCategoryNo == 1) {
       this.CurrentCategoryNo = this.CurrentCategoryNo + 1;
       this.speedtomarket = this.allItems;
       this.CurrentCategory = 'Cost';
       this.filterMetrics('Cost');
     }
-    else if(this.CurrentCategoryNo == 2){
+    else if (this.CurrentCategoryNo == 2) {
       this.CurrentCategoryNo = this.CurrentCategoryNo + 1;
       this.cost = this.allItems;
       this.CurrentCategory = 'Quality';
       this.filterMetrics('Quality');
     }
-    else if(this.CurrentCategoryNo == 3){
+    else if (this.CurrentCategoryNo == 3) {
       this.CurrentCategoryNo = this.CurrentCategoryNo + 1;
       this.quality = this.allItems;
       this.CurrentCategory = 'Change Rate';

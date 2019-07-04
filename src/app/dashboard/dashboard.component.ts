@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import { FormGroup, FormControl, FormBuilder,Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ProjectData } from '../projectdata';
-import {MetricsCalculatorService} from '../metrics-calculator.service';
+import { MetricsCalculatorService } from '../metrics-calculator.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,18 +13,18 @@ import { ActivatedRoute } from '@angular/router';
 
 export class DashboardComponent implements OnInit {
   projectname: AbstractControl;
-  projectnamepattern   = "^[a-z0-9_-]{8,15}$";
+  projectnamepattern = "^[a-z0-9_-]{8,15}$";
   clientname: AbstractControl;
   industrygroup: AbstractControl;
   worklocation: AbstractControl;
-  formdata : FormGroup;
+  formdata: FormGroup;
   uuid;
-  submitted:boolean = false;
-  mycalculations : any[];
-  projectdata : ProjectData[];
+  submitted: boolean = false;
+  mycalculations: any[];
+  projectdata: ProjectData[];
   hideModal: boolean = false;
-  
-  constructor(private _formbuilder:FormBuilder,private _router:Router, private _metricscal: MetricsCalculatorService) { }
+
+  constructor(private _formbuilder: FormBuilder, private _router: Router, private _metricscal: MetricsCalculatorService) { }
 
   ngOnInit() {
     this._metricscal.getCalculatedProjects().subscribe(
@@ -36,10 +36,10 @@ export class DashboardComponent implements OnInit {
       }
     );
     this.formdata = this._formbuilder.group({
-      projectname:['',Validators.required],
-      clientname:['',Validators.required],
-      industrygroup:['',Validators.required],
-      worklocation:['',Validators.required]
+      projectname: ['', Validators.required],
+      clientname: ['', Validators.required],
+      industrygroup: ['', Validators.required],
+      worklocation: ['', Validators.required]
     });
 
     this.projectname = this.formdata.controls['projectname'];
@@ -48,22 +48,22 @@ export class DashboardComponent implements OnInit {
     this.worklocation = this.formdata.controls['worklocation'];
   }
 
-  carouselprev(){
+  carouselprev() {
     console.log("Prev");
   }
 
   get f() { return this.formdata.controls; }
 
-  carouselnext(){
+  carouselnext() {
     console.log("Next");
   }
-  
-  navigatetocalc(){
-    this._router.navigateByUrl('/calculator/'+this.uuid);
+
+  navigatetocalc() {
+    this._router.navigateByUrl('/calculator/' + this.uuid);
   }
 
-  editcalculations(i){
-    this._router.navigateByUrl('/calculator/'+i.ProjectGUID);
+  editcalculations(i) {
+    this._router.navigateByUrl('/calculator/' + i.ProjectGUID);
   }
 
   onClickSubmit(data) {
@@ -71,25 +71,25 @@ export class DashboardComponent implements OnInit {
     console.log(this.submitted);
     if (this.formdata.invalid) {
       return;
-  }
+    }
 
     this.projectdata = [{
-      projectname : data.projectname,
-      clientname : data.clientname,
-      industrygroup : data.industrygroup,
-      worklocation : data.worklocation
+      projectname: data.projectname,
+      clientname: data.clientname,
+      industrygroup: data.industrygroup,
+      worklocation: data.worklocation
     }];
     console.log(this.projectdata);
     this._metricscal.postProjectDetails(this.projectdata).subscribe(
-      (data: any)=>{
+      (data: any) => {
         this.uuid = data;
       },
-      (error: any)=>{console.log(error)},
-      ()=>{
+      (error: any) => { console.log(error) },
+      () => {
         document.getElementById("close-modal").click();
         this.navigatetocalc();
       }
     );
-    
+
   }
 }

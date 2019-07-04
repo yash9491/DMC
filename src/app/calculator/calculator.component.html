@@ -90,32 +90,46 @@
                     </div>
                 </div>
             </div>
-            <div class="row" style="border-bottom: 1px dotted black" *ngFor="let i of allItems | slice: firstindex : lastindex; let j = index">
+            <div class="row" style="border-bottom: 1px dotted black"
+                *ngFor="let i of allItems | slice: firstindex : lastindex; let j = index">
                 <div class="col-lg-4 grid-data-mem">
                     <span>{{i.Metric}}</span>
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
 
-                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
-                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.BeforeDevOpsHrs"
-                                [readonly]="i.ReadOnly != 0" (input)="i.BeforeDevOpsHrs=$event.target.value">
+                        <div class="col grid-data-mem"
+                            [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
+                            <input type="text"
+                                [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}"
+                                [value]="i.BeforeDevOpsHrs" [readonly]="i.ReadOnly != 0"
+                                (input)="i.BeforeDevOpsHrs=$event.target.value">
                         </div>
-                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" >
-                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.BeforeDevOpsCost"
-                            [readonly]="i.ReadOnly != 0" (input)="i.BeforeDevOpsCost=$event.target.value">
+                        <div class="col grid-data-mem"
+                            [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
+                            <input type="text"
+                                [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}"
+                                [value]="i.BeforeDevOpsCost" [readonly]="i.ReadOnly != 0"
+                                (input)="i.BeforeDevOpsCost=$event.target.value">
                         </div>
-                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" >
-                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.AfterDevOpsHrs"
-                            [readonly]="i.ReadOnly != 0" (input)="i.AfterDevOpsHrs=$event.target.value">
+                        <div class="col grid-data-mem"
+                            [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
+                            <input type="text"
+                                [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}"
+                                [value]="i.AfterDevOpsHrs" [readonly]="i.ReadOnly != 0"
+                                (input)="i.AfterDevOpsHrs=$event.target.value">
                         </div>
-                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
-                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.AfterDevOpsCost"
-                            [readonly]="i.ReadOnly != 0" (input)="i.AfterDevOpsCost=$event.target.value">
+                        <div class="col grid-data-mem"
+                            [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
+                            <input type="text"
+                                [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}"
+                                [value]="i.AfterDevOpsCost" [readonly]="i.ReadOnly != 0"
+                                (input)="i.AfterDevOpsCost=$event.target.value">
                         </div>
                         <div class="col grid-data-mem">
                             <input type="image" (click)="greyout(i)" class="dnd-logo-1"
-                                [src]="i.ReadOnly == 0 ? 'assets/images/dnd.png' : 'assets/images/green.svg'" alt="image">
+                                [src]="i.ReadOnly == 0 ? 'assets/images/dnd.png' : 'assets/images/green.svg'"
+                                alt="image">
                         </div>
 
                     </div>

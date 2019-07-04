@@ -24,7 +24,8 @@
     <div class="col-lg-6 content">
       <span class="main-heading">DevOps Metrics Calculator</span><br>
       <span class="sub-heading">A Calculator that Never Settle</span><br><br><br>
-      <span><a style="text-decoration: underline; font-weight:bold" data-toggle="modal" data-target="#myModal">Click here for new calculation</a></span>
+      <span><a style="text-decoration: underline; font-weight:bold" data-toggle="modal" data-target="#myModal">Click
+          here for new calculation</a></span>
     </div>
   </div>
   <div class="row">
@@ -65,8 +66,8 @@
                 <footer id="footer" class="mycalc-tiles-footer">
                   <div class="row" style="padding-top:5px">
                     <div class="col-lg-2 offset-lg-2">
-                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
-                        style="cursor:pointer" src="assets/images/quality.png" alt="image">
+                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img" style="cursor:pointer"
+                        src="assets/images/quality.png" alt="image">
                     </div>
                     <div class="col-lg-2 offset-lg-1">
                       <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)"
@@ -111,8 +112,8 @@
                 <footer id="footer" class="mycalc-tiles-footer">
                   <div class="row" style="padding-top:5px">
                     <div class="col-lg-2 offset-lg-2">
-                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img"
-                      style="cursor:pointer" src="assets/images/quality.png" alt="image">
+                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img" style="cursor:pointer"
+                        src="assets/images/quality.png" alt="image">
                     </div>
                     <div class="col-lg-2 offset-lg-1">
                       <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)"
@@ -237,9 +238,11 @@
             </div>
             <div class="row popup">
               <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="projectname"
-               placeholder="Project Name"><br></div>
-                <div class="col-lg-7 offset-lg-2" style="color:red; height:10px" *ngIf="submitted && f.projectname.errors">
-            <p class="popup-text" >*Project Name is required</p></div>
+                  placeholder="Project Name"><br></div>
+              <div class="col-lg-7 offset-lg-2" style="color:red; height:10px"
+                *ngIf="submitted && f.projectname.errors">
+                <p class="popup-text">*Project Name is required</p>
+              </div>
             </div>
             <div class="row popup">
               <div class="col-lg-6 offset-lg-2"><span class="popup-text">Client Name:</span></div>
@@ -247,8 +250,9 @@
             <div class="row popup">
               <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="clientname"
                   placeholder="Client Name"><br></div>
-                  <div class="col-lg-7 offset-lg-2" style="color:red; height:10px" *ngIf="submitted && f.clientname.errors">
-                      <p class="popup-text">*Client Name is required</p></div>
+              <div class="col-lg-7 offset-lg-2" style="color:red; height:10px" *ngIf="submitted && f.clientname.errors">
+                <p class="popup-text">*Client Name is required</p>
+              </div>
             </div>
             <div class="row popup">
               <div class="col-lg-6 offset-lg-2"><span class="popup-text">Industry Group:</span></div>
@@ -256,8 +260,10 @@
             <div class="row popup">
               <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="industrygroup"
                   placeholder="Industry Group"><br></div>
-                  <div class="col-lg-7 offset-lg-2"style="color:red; height:10px" *ngIf="submitted && f.industrygroup.errors">
-                      <p class="popup-text">*Industry Group is required</p></div>
+              <div class="col-lg-7 offset-lg-2" style="color:red; height:10px"
+                *ngIf="submitted && f.industrygroup.errors">
+                <p class="popup-text">*Industry Group is required</p>
+              </div>
             </div>
             <div class="row popup">
               <div class="col-lg-6 offset-lg-2"><span class="popup-text">Work Location:</span></div>
@@ -265,8 +271,10 @@
             <div class="row popup">
               <div class="col-lg-7 offset-lg-2"><input class="popup-textbox" type="text" formControlName="worklocation"
                   placeholder="Work Location"><br></div>
-                  <div class="col-lg-7 offset-lg-2" style="color:red; height:10px" *ngIf="submitted && f.worklocation.errors">
-                      <p class="popup-text">*Work Location is required</p></div>
+              <div class="col-lg-7 offset-lg-2" style="color:red; height:10px"
+                *ngIf="submitted && f.worklocation.errors">
+                <p class="popup-text">*Work Location is required</p>
+              </div>
             </div>
             <div class="modal-footer">
               <span><button type="submit" class="getstarted" value="Submit">Submit</button></span>

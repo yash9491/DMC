@@ -9,15 +9,15 @@ export class MetricsCalculatorService {
 
   constructor(private http: HttpClient) { }
 
-  public getMetrics(): Observable<any>{
+  public getMetrics(): Observable<any> {
     return this.http.get<any>("http://127.0.0.1:5000/api/getMetrics");
   }
 
-  public postProjectDetails(data): Observable<any>{
-    return this.http.post("http://127.0.0.1:5000/api/addProjectDetails",data,{ responseType: 'text' });
+  public postProjectDetails(data): Observable<any> {
+    return this.http.post("http://127.0.0.1:5000/api/addProjectDetails", data, { responseType: 'text' });
   }
 
-  public getMetricValues(UUID) : Observable<any>{
+  public getMetricValues(UUID): Observable<any> {
     return this.http.get<any>("http://127.0.0.1:5000/api/getMetricValues", {
       params: {
         projectUUID: UUID
@@ -25,8 +25,8 @@ export class MetricsCalculatorService {
     });
   }
 
-  public updateMetricValues(data, UUID): Observable<any>{
-    return this.http.post("http://127.0.0.1:5000/api/updateMetricValues",data,{
+  public updateMetricValues(data, UUID): Observable<any> {
+    return this.http.post("http://127.0.0.1:5000/api/updateMetricValues", data, {
       responseType: 'text',
       params: {
         projectUUID: UUID
@@ -34,7 +34,7 @@ export class MetricsCalculatorService {
     });
   }
 
-  public getCalculatedProjects() : Observable<any>{
+  public getCalculatedProjects(): Observable<any> {
     return this.http.get<any>("http://127.0.0.1:5000/api/getCalculatedProjects");
-  } 
+  }
 }
