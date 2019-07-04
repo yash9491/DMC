@@ -4,6 +4,16 @@ html {
   textarea:focus, input:focus{
     outline: none;
 }
+.modal-header .close {
+    color: #fff; 
+    opacity: 1;
+}
+.readonly{
+    background-color: #dae2e8;
+}
+.readonly-none{
+    background-color:none;
+}
   input{
       border:0;
       text-align: center;

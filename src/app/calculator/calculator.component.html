@@ -97,25 +97,25 @@
                 <div class="col-lg-8">
                     <div class="row">
 
-                        <div class="col grid-data-mem" id="{{'1inputId'+j}}">
-                            <input type="text" id="{{'5inputId'+j}}" [value]="i.BeforeDevOpsHrs"
-                                (input)="i.BeforeDevOpsHrs=$event.target.value">
+                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
+                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.BeforeDevOpsHrs"
+                                [readonly]="i.ReadOnly != 0" (input)="i.BeforeDevOpsHrs=$event.target.value">
                         </div>
-                        <div class="col grid-data-mem" id="{{'2inputId'+j}}">
-                            <input type="text" id="{{'6inputId'+j}}" [value]="i.BeforeDevOpsCost"
-                                (input)="i.BeforeDevOpsCost=$event.target.value">
+                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" >
+                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.BeforeDevOpsCost"
+                            [readonly]="i.ReadOnly != 0" (input)="i.BeforeDevOpsCost=$event.target.value">
                         </div>
-                        <div class="col grid-data-mem" id="{{'3inputId'+j}}">
-                            <input type="text" id="{{'7inputId'+j}}" [value]="i.AfterDevOpsHrs"
-                                (input)="i.AfterDevOpsHrs=$event.target.value">
+                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" >
+                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.AfterDevOpsHrs"
+                            [readonly]="i.ReadOnly != 0" (input)="i.AfterDevOpsHrs=$event.target.value">
                         </div>
-                        <div class="col grid-data-mem" id="{{'4inputId'+j}}">
-                            <input type="text" id="{{'8inputId'+j}}" [value]="i.AfterDevOpsCost"
-                                (input)="i.AfterDevOpsCost=$event.target.value">
+                        <div class="col grid-data-mem" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}">
+                            <input type="text" [ngClass]="{'readonly': i.ReadOnly != 0, 'readonly-none':i.ReadOnly == 0}" [value]="i.AfterDevOpsCost"
+                            [readonly]="i.ReadOnly != 0" (input)="i.AfterDevOpsCost=$event.target.value">
                         </div>
                         <div class="col grid-data-mem">
-                            <input type="image" id="{{'9inputId'+j}}" (click)="greyout(i,j)" class="dnd-logo-1"
-                                src="assets/images/dnd.png" alt="image">
+                            <input type="image" (click)="greyout(i)" class="dnd-logo-1"
+                                [src]="i.ReadOnly == 0 ? 'assets/images/dnd.png' : 'assets/images/green.svg'" alt="image">
                         </div>
 
                     </div>

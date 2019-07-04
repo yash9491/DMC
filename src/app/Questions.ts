@@ -7,4 +7,5 @@ export class Metrics{
     BeforeDevOpsCost: any;
     AfterDevOpsHrs: any;
     AfterDevOpsCost: any;
+    ReadOnly: any;
 }

@@ -28,6 +28,8 @@ export class CalculatorComponent implements OnInit {
   quality: Metrics[];
   changerate: Metrics[];
   modifiedvalues: Metrics[];
+  greenimage : any = "assets/images/green.svg";
+  redimage : any = "assets/images/dnd.png";
 
   constructor(private _pagerservice: PagerServiceService, private metricscalc: MetricsCalculatorService, private _router: Router, private route: ActivatedRoute) {
   }
@@ -98,31 +100,12 @@ export class CalculatorComponent implements OnInit {
     );
   }
 
-  greyout(i,j){
+  greyout(i){
     i.BeforeDevOpsHrs = 0.00;
     i.BeforeDevOpsCost = 0.00;
     i.AfterDevOpsHrs = 0.00;
     i.AfterDevOpsCost = 0.00;
-   
-    var lock = document.getElementById(5+"inputId"+j) as HTMLInputElement;
-    if(lock.readOnly == true)
-    {
-      for(var k=1;k<=8;k++){
-        var read = document.getElementById(k+"inputId"+j) as HTMLInputElement;
-        read.readOnly = false;
-        document.getElementById(k+"inputId"+j).setAttribute("style","background-color:none");
-      }
-      document.getElementById("9inputId"+j).setAttribute("src","assets/images/dnd.png");
-    }
-    else
-    {
-    for(var k=1;k<=8;k++){
-      var read = document.getElementById(k+"inputId"+j) as HTMLInputElement;
-      read.readOnly = true;
-      document.getElementById(k+"inputId"+j).setAttribute("style","background-color:#dae2e8");
-    }
-    document.getElementById("9inputId"+j).setAttribute("src","assets/images/green.svg");
-   }
+    i.ReadOnly = i.ReadOnly == 1 ? 0 : 1;
   }
 
   gotoHome() {
