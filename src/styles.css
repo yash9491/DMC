@@ -190,6 +190,7 @@ a {
     padding-top: 3px;
     padding-bottom: 5px;
     font-size: 11px;
+    text-align:left;
 }
 
 .mycalc-content-right {
@@ -200,6 +201,7 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align:left;
 }
 
 .tile-img {

@@ -21,20 +21,14 @@ export class DashboardComponent implements OnInit {
   uuid;
   submitted: boolean = false;
   mycalculations: any[];
+  editpopupdata : any[];
   projectdata: ProjectData[];
   hideModal: boolean = false;
 
   constructor(private _formbuilder: FormBuilder, private _router: Router, private _metricscal: MetricsCalculatorService) { }
 
   ngOnInit() {
-    this._metricscal.getCalculatedProjects().subscribe(
-      data => {
-        this.mycalculations = data;
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    this.getProjectDetails();
     this.formdata = this._formbuilder.group({
       projectname: ['', Validators.required],
       clientname: ['', Validators.required],
@@ -91,5 +85,35 @@ export class DashboardComponent implements OnInit {
       }
     );
 
+  }
+
+  getProjectDetails(){
+    this._metricscal.getCalculatedProjects().subscribe(
+      data => {
+        this.mycalculations = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  deleteProject(GUID){
+    console.log(GUID);
+    this._metricscal.deleteProject(GUID).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);this.getProjectDetails();
+      },
+      () => {
+        
+      }
+    );
+  }
+
+  saveEditedProjectDetails(data){
+    console.log(data);
   }
 }

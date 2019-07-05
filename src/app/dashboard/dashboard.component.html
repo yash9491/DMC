@@ -65,16 +65,16 @@
                 </div>
                 <footer id="footer" class="mycalc-tiles-footer">
                   <div class="row" style="padding-top:5px">
-                    <div class="col-lg-2 offset-lg-2">
-                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img" style="cursor:pointer"
+                    <!-- <div class="col-lg-2 offset-lg-2">
+                      <img data-toggle="modal"  (click)="getProjectDetails(mycalc.ProjectGUID)" class="mycalc-tiles-img" style="cursor:pointer"
                         src="assets/images/quality.png" alt="image">
-                    </div>
-                    <div class="col-lg-2 offset-lg-1">
+                    </div> -->
+                    <div class="col-lg-2 offset-lg-3">
                       <img style="cursor:pointer" class="mycalc-tiles-img" (click)="editcalculations(mycalc)"
                         src="assets/images/edit.png" alt="image">
                     </div>
                     <div class="col-lg-2 offset-lg-1">
-                      <img class="mycalc-tiles-img" src="assets/images/delete.png" alt="image">
+                      <img class="mycalc-tiles-img" style="cursor:pointer" (click)="deleteProject(mycalc.ProjectGUID)" src="assets/images/delete.png" alt="image">
                     </div>
                   </div>
                 </footer>
@@ -112,7 +112,7 @@
                 <footer id="footer" class="mycalc-tiles-footer">
                   <div class="row" style="padding-top:5px">
                     <div class="col-lg-2 offset-lg-2">
-                      <img data-toggle="modal" data-target="#myModal" class="mycalc-tiles-img" style="cursor:pointer"
+                      <img data-toggle="modal" data-target="#editModal" class="mycalc-tiles-img" style="cursor:pointer"
                         src="assets/images/quality.png" alt="image">
                     </div>
                     <div class="col-lg-2 offset-lg-1">
@@ -120,7 +120,7 @@
                         src="assets/images/edit.png" alt="image">
                     </div>
                     <div class="col-lg-2 offset-lg-1">
-                      <img class="mycalc-tiles-img" src="assets/images/delete.png" alt="image">
+                      <img class="mycalc-tiles-img" style="cursor:pointer" (click)="deleteProject(mycalc.ProjectGUID)" src="assets/images/delete.png" alt="image">
                     </div>
                   </div>
                 </footer>
@@ -285,3 +285,5 @@
       </div>
     </div>
   </div>
+
+  
